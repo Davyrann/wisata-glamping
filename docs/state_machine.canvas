@@ -1,0 +1,177 @@
+{
+  "nodes": [
+    {
+      "id": "1000000000000001",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 130,
+      "color": "5",
+      "text": "### Checkout\n- User pilih kamar & add-on alat\n- Input kontak & tanggal sewa\n- Hold stok 15 menit"
+    },
+    {
+      "id": "1000000000000002",
+      "type": "text",
+      "x": 340,
+      "y": 0,
+      "width": 260,
+      "height": 130,
+      "color": "3",
+      "text": "### unpaid\n- Status order dibuat\n- Timer 15 menit berjalan\n- Menunggu simulasi pembayaran"
+    },
+    {
+      "id": "1000000000000003",
+      "type": "text",
+      "x": 220,
+      "y": -200,
+      "width": 220,
+      "height": 110,
+      "color": "1",
+      "text": "### expired\n- Batas 15 menit lewat\n- Stok inventori dirilis"
+    },
+    {
+      "id": "1000000000000004",
+      "type": "text",
+      "x": 480,
+      "y": -200,
+      "width": 220,
+      "height": 110,
+      "color": "1",
+      "text": "### failed\n- Tombol simulasi gagal\n- Stok inventori dirilis"
+    },
+    {
+      "id": "1000000000000005",
+      "type": "text",
+      "x": 680,
+      "y": 0,
+      "width": 280,
+      "height": 140,
+      "color": "4",
+      "text": "### confirmed\n- Simulasi bayar berhasil\n- Stok terkunci permanen\n- Terbit kartu sewa & QR dummy"
+    },
+    {
+      "id": "1000000000000006",
+      "type": "text",
+      "x": 680,
+      "y": 230,
+      "width": 280,
+      "height": 150,
+      "color": "2",
+      "text": "### cancellation_requested\n- User ajukan alasan pembatalan\n- Estimasi refund otomatis dihitung\n- Menunggu review Staff"
+    },
+    {
+      "id": "1000000000000007",
+      "type": "text",
+      "x": 1040,
+      "y": 230,
+      "width": 260,
+      "height": 150,
+      "color": "1",
+      "text": "### cancelled\n- Staff Approve pembatalan\n- Stok rilis ke publik\n- Catatan refund tersimpan"
+    },
+    {
+      "id": "1000000000000008",
+      "type": "text",
+      "x": 1040,
+      "y": 0,
+      "width": 280,
+      "height": 140,
+      "color": "5",
+      "text": "### checked_in\n- Staff verifikasi QR / kode booking\n- Cek & catat checklist fisik awal"
+    },
+    {
+      "id": "1000000000000009",
+      "type": "text",
+      "x": 1400,
+      "y": 0,
+      "width": 300,
+      "height": 160,
+      "color": "4",
+      "text": "### completed\n- Staff verifikasi check-out\n- Checklist kondisi akhir\n- Stok kamar & alat rilis\n- Settle deposit (dikembalikan / dipotong)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "2000000000000001",
+      "fromNode": "1000000000000001",
+      "fromSide": "right",
+      "toNode": "1000000000000002",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "Hold stok"
+    },
+    {
+      "id": "2000000000000002",
+      "fromNode": "1000000000000002",
+      "fromSide": "top",
+      "toNode": "1000000000000003",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "label": "Waktu habis"
+    },
+    {
+      "id": "2000000000000003",
+      "fromNode": "1000000000000002",
+      "fromSide": "top",
+      "toNode": "1000000000000004",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "label": "Simulasi gagal"
+    },
+    {
+      "id": "2000000000000004",
+      "fromNode": "1000000000000002",
+      "fromSide": "right",
+      "toNode": "1000000000000005",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "Simulasi bayar sukses"
+    },
+    {
+      "id": "2000000000000005",
+      "fromNode": "1000000000000005",
+      "fromSide": "bottom",
+      "toNode": "1000000000000006",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "label": "User ajukan batal"
+    },
+    {
+      "id": "2000000000000006",
+      "fromNode": "1000000000000006",
+      "fromSide": "left",
+      "toNode": "1000000000000005",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "label": "Staff Reject"
+    },
+    {
+      "id": "2000000000000007",
+      "fromNode": "1000000000000006",
+      "fromSide": "right",
+      "toNode": "1000000000000007",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "Staff Approve"
+    },
+    {
+      "id": "2000000000000008",
+      "fromNode": "1000000000000005",
+      "fromSide": "right",
+      "toNode": "1000000000000008",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "Staff Check-in"
+    },
+    {
+      "id": "2000000000000009",
+      "fromNode": "1000000000000008",
+      "fromSide": "right",
+      "toNode": "1000000000000009",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "Staff Check-out"
+    }
+  ]
+}

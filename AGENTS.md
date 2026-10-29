@@ -1,3 +1,63 @@
+# Wisata Glamping — Agent Guidelines
+
+## Mandatory: Always Follow PRD Agent Rules
+Setiap agent **WAJIB** membaca dan mematuhi seluruh aturan pada section `# Ketentuan Teknis & Agent Rules` di `PRD.md`:
+1. **Codebase Memory**: Gunakan MCP codebase-memory untuk eksplorasi dan pemahaman arsitektur kode.
+2. **Mobile-First Development**: Seluruh layout dan komponen frontend wajib dirancang dengan pendekatan mobile-first.
+3. **Anti-Slop UI**: Frontend WAJIB menerapkan prinsip antislop (desain bersih, minimalis, tipografi proporsional, kontras teruji, hindari generic AI slop).
+4. **Dokumentasi Kode**: Setiap fungsi, method, dan class WAJIB memiliki dokumentasi PHPDoc yang jelas.
+5. **Delete First, No Duplicate**: Hapus kode usang terlebih dahulu; tidak boleh ada file atau logika duplikat.
+6. **Skill Selection**: Selalu aktifkan skill yang sesuai dengan domain pekerjaan yang sedang dieksekusi.
+7. **Obsidian Integration**: Manfaatkan format Obsidian (.canvas / Markdown) untuk memetakan diagram alur dan struktur sistem.
+
+---
+
+## Essential Commands
+- **Dev Servers**: `composer run dev` (starts `php artisan serve`, queue worker, and Vite concurrently)
+- **Single Test**: `vendor/bin/pest tests/Feature/YourTest.php` or `php artisan test --filter=test_name`
+- **Full Test Suite**: `php artisan test --compact`
+- **Code Formatter**: `vendor/bin/pint --dirty --format agent` (run before finalizing edits; do not use `--test`)
+- **Frontend Build**: `npm run build` (uses Tailwind CSS v4 via `@tailwindcss/vite`)
+- **Database Refresh & Seed**: `php artisan migrate:fresh --seed`
+
+---
+
+## Critical Business Invariants (PRD Rules)
+- **Role-Based Access Control**:
+  - Roles: `admin`, `staff`, `user`.
+  - Public registration (`/register`) **only** creates `user`. `staff` and `admin` accounts can only be provisioned via Admin panel or seeders.
+  - Required Demo Accounts:
+    - Admin: `admin@demo.test` / `Admin#2026`
+    - Staff: `staff@demo.test` / `Staff#2026`
+    - User: `user@demo.test` / `User#2026`
+- **Booking & Inventory Concurrency**:
+  - 1 Glamping Room + multiple equipment items as add-ons (`booking_items`).
+  - Rental duration is counted **per night** (Check-in 14:00 WIB, Check-out 12:00 WIB).
+  - Status `unpaid` holds inventory stock for **15 minutes** with a dummy QRIS timer. Stock releases back to inventory immediately upon expiry or payment failure.
+  - Concurrency protection: Always wrap stock checks and deductions in `DB::transaction()` using `lockForUpdate()`.
+- **Financial & Refund Logic**:
+  - Asuransi Pembatalan: Flat **Rp 25.000** (opsional).
+  - Deposit Jaminan: Flat **Rp 50.000** (wajib, dibayar di awal, diselesaikan saat check-out).
+  - Pembatalan (hanya sebelum check-in):
+    - Dengan asuransi: $> 3$ hari = refund 100% biaya sewa; $\le 3$ hari = refund 50% biaya sewa (premi hangus, deposit kembali).
+    - Tanpa asuransi: refund 0% biaya sewa (deposit tetap kembali).
+  - Simpan permohonan pembatalan di tabel `cancellation_requests` (bukan field campur di `bookings`).
+- **Serah Terima & Check-out**:
+  - Kartu digital user memuat QR dummy dan kode booking teks manual (fallback jika scan QR gagal).
+  - Checklist dinamis per barang (kondisi: Baik, Rusak, Hilang) disimpan di tabel `checklists`.
+  - Saat check-out, staff mencatat potongan deposit (Rp 0 - Rp 50.000) dan catatan kerusakan sebelum status menjadi `completed`.
+- **Audit Logging**:
+  - Setiap tindakan Staff/Admin (approve/reject pembatalan, check-in/out, pemotongan deposit, mutasi stok, CRUD inventori/artikel) wajib dicatat di tabel `activity_logs`.
+
+---
+
+## Code & Testing Conventions
+- **Pest Tests Over Ad-hoc Scripts**: Never write throwaway verification scripts or tinker snippets when a test can verify the feature. Write Pest feature tests (`php artisan make:test --pest NameTest`).
+- **Frontend**: Blade + Tailwind v4 with strict **Mobile-First** responsiveness and anti-slop principles (high contrast, clean layout, no unnecessary heavy gradients/animations).
+- **PHP Style**: Always declare strict return types, use PHP 8 constructor property promotion, and provide PHPDoc blocks for method documentation.
+
+---
+
 <laravel-boost-guidelines>
 === foundation rules ===
 

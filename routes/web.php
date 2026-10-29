@@ -1,7 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Rute publik aplikasi Atara Glamping.
+|
+*/
+
+Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/login', [LandingController::class, 'authUnavailable'])->name('login');
