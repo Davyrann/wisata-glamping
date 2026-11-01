@@ -47,7 +47,7 @@
 
         <!-- Hero Main Landscape Image -->
         <div class="relative w-full overflow-hidden border border-[#1D1D1C] bg-[#000000]">
-            <img src="{{ asset('images/Mountain_View.jpg') }}"
+            <img src="{{ asset('images/Camp_premium.jpg') }}"
                  alt="Panorama lanskap pegunungan dan kabut Atara Glamping"
                  class="w-full h-[320px] sm:h-[480px] lg:h-[620px] object-cover object-center filter brightness-95"
                  loading="eager">
@@ -110,7 +110,7 @@
             <!-- Room 1: Safari Luxury Suite -->
             <article class="flex flex-col border border-[#E0DEDC] bg-[#F9F7F5] group">
                 <div class="relative overflow-hidden aspect-[4/3] bg-black">
-                    <img src="{{ asset('images/Night_Camp.jpg') }}"
+                    <img src="{{ asset('images/Camp_with_chair.jpg') }}"
                          alt="Safari Luxury Suite di malam hari"
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                          loading="lazy">
@@ -159,11 +159,11 @@
 
             <!-- Room 2: Alpine Geodesic Dome -->
             <article class="flex flex-col border border-[#1D1D1C] bg-white group shadow-[0_6px_17px_rgba(0,0,0,0.06)] relative">
-                <div class="absolute -top-3 right-4 bg-[#1D1D1C] text-white text-[10px] font-mono uppercase tracking-widest px-3 py-0.5">
+                <div class="absolute -top-3 right-4 z-10 bg-[#1D1D1C] text-white text-[10px] font-mono uppercase tracking-widest px-3 py-0.5">
                     Paling Diminati
                 </div>
                 <div class="relative overflow-hidden aspect-[4/3] bg-black">
-                    <img src="{{ asset('images/Moutanin_with_Snow_on_top.jpg') }}"
+                    <img src="{{ asset('images/Camp_from_above.jpg') }}"
                          alt="Alpine Geodesic Dome dengan pemandangan puncak"
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                          loading="lazy">
@@ -213,7 +213,7 @@
             <!-- Room 3: Bell Tent Pine Retreat -->
             <article class="flex flex-col border border-[#E0DEDC] bg-[#F9F7F5] group">
                 <div class="relative overflow-hidden aspect-[4/3] bg-black">
-                    <img src="{{ asset('images/Mountain_with_Campfire.jpg') }}"
+                    <img src="{{ asset('images/High_standart_camp.jpg') }}"
                          alt="Bell Tent Pine Retreat dengan api unggun"
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                          loading="lazy">
@@ -625,7 +625,7 @@
             <!-- Article 1 -->
             <article class="flex flex-col border border-[#E0DEDC] bg-[#F9F7F5] group">
                 <div class="relative overflow-hidden aspect-[16/10] bg-black">
-                    <img src="{{ asset('images/Mountain_View.jpg') }}"
+                    <img src="{{ asset('images/Camp_premium.jpg') }}"
                          alt="Pemandangan pegunungan dan persiapan tenda"
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                          loading="lazy">
@@ -655,7 +655,7 @@
             <!-- Article 2 -->
             <article class="flex flex-col border border-[#E0DEDC] bg-[#F9F7F5] group">
                 <div class="relative overflow-hidden aspect-[16/10] bg-black">
-                    <img src="{{ asset('images/Marshmellow.jpg') }}"
+                    <img src="{{ asset('images/Camp_from_above.jpg') }}"
                          alt="Aktivitas memanggang marshmallow di dekat tenda"
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                          loading="lazy">
@@ -685,7 +685,7 @@
             <!-- Article 3 -->
             <article class="flex flex-col border border-[#E0DEDC] bg-[#F9F7F5] group">
                 <div class="relative overflow-hidden aspect-[16/10] bg-black">
-                    <img src="{{ asset('images/Mountain_with_Campfire.jpg') }}"
+                    <img src="{{ asset('images/High_standart_camp.jpg') }}"
                          alt="Api unggun senja di perkemahan glamping"
                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                          loading="lazy">
