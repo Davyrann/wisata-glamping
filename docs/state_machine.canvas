@@ -8,7 +8,7 @@
       "width": 260,
       "height": 130,
       "color": "5",
-      "text": "### Checkout\n- User pilih kamar & add-on alat\n- Input kontak & tanggal sewa\n- Hold stok 15 menit"
+      "text": "### Checkout\n- User pilih kamar glamping\n- Input kontak & tanggal sewa\n- Opsi asuransi pembatalan"
     },
     {
       "id": "1000000000000002",
@@ -18,27 +18,7 @@
       "width": 260,
       "height": 130,
       "color": "3",
-      "text": "### unpaid\n- Status order dibuat\n- Timer 15 menit berjalan\n- Menunggu simulasi pembayaran"
-    },
-    {
-      "id": "1000000000000003",
-      "type": "text",
-      "x": 220,
-      "y": -200,
-      "width": 220,
-      "height": 110,
-      "color": "1",
-      "text": "### expired\n- Batas 15 menit lewat\n- Stok inventori dirilis"
-    },
-    {
-      "id": "1000000000000004",
-      "type": "text",
-      "x": 480,
-      "y": -200,
-      "width": 220,
-      "height": 110,
-      "color": "1",
-      "text": "### failed\n- Tombol simulasi gagal\n- Stok inventori dirilis"
+      "text": "### unpaid\n- Status order dibuat\n- Instruksi QRIS dummy\n- Pilihan simulasi bayar / batal"
     },
     {
       "id": "1000000000000005",
@@ -48,7 +28,7 @@
       "width": 280,
       "height": 140,
       "color": "4",
-      "text": "### confirmed\n- Simulasi bayar berhasil\n- Stok terkunci permanen\n- Terbit kartu sewa & QR dummy"
+      "text": "### confirmed\n- Simulasi bayar sukses\n- Stok kamar terpesan\n- Terbit kartu digital & QR dummy"
     },
     {
       "id": "1000000000000006",
@@ -58,17 +38,17 @@
       "width": 280,
       "height": 150,
       "color": "2",
-      "text": "### cancellation_requested\n- User ajukan alasan pembatalan\n- Estimasi refund otomatis dihitung\n- Menunggu review Staff"
+      "text": "### cancellation_requested\n- User ajukan alasan pembatalan\n- Hitung estimasi refund asuransi\n- Menunggu review Staff"
     },
     {
       "id": "1000000000000007",
       "type": "text",
-      "x": 1040,
+      "x": 340,
       "y": 230,
       "width": 260,
       "height": 150,
       "color": "1",
-      "text": "### cancelled\n- Staff Approve pembatalan\n- Stok rilis ke publik\n- Catatan refund tersimpan"
+      "text": "### cancelled\n- User batalkan saat unpaid ATAU\n- Staff approve pembatalan\n- Stok kamar rilis kembali"
     },
     {
       "id": "1000000000000008",
@@ -78,17 +58,17 @@
       "width": 280,
       "height": 140,
       "color": "5",
-      "text": "### checked_in\n- Staff verifikasi QR / kode booking\n- Cek & catat checklist fisik awal"
+      "text": "### checked_in\n- Staff verifikasi kode / QR\n- Checklist serah terima kamar\n- Tamu resmi menginap"
     },
     {
       "id": "1000000000000009",
       "type": "text",
       "x": 1400,
       "y": 0,
-      "width": 300,
-      "height": 160,
+      "width": 280,
+      "height": 140,
       "color": "4",
-      "text": "### completed\n- Staff verifikasi check-out\n- Checklist kondisi akhir\n- Stok kamar & alat rilis\n- Settle deposit (dikembalikan / dipotong)"
+      "text": "### completed\n- Staff verifikasi check-out\n- Reservasi selesai\n- Stok kamar rilis ke publik"
     }
   ],
   "edges": [
@@ -99,25 +79,16 @@
       "toNode": "1000000000000002",
       "toSide": "left",
       "toEnd": "arrow",
-      "label": "Hold stok"
-    },
-    {
-      "id": "2000000000000002",
-      "fromNode": "1000000000000002",
-      "fromSide": "top",
-      "toNode": "1000000000000003",
-      "toSide": "bottom",
-      "toEnd": "arrow",
-      "label": "Waktu habis"
+      "label": "Buat reservasi"
     },
     {
       "id": "2000000000000003",
       "fromNode": "1000000000000002",
-      "fromSide": "top",
-      "toNode": "1000000000000004",
-      "toSide": "bottom",
+      "fromSide": "bottom",
+      "toNode": "1000000000000007",
+      "toSide": "top",
       "toEnd": "arrow",
-      "label": "Simulasi gagal"
+      "label": "Batalkan di sandbox"
     },
     {
       "id": "2000000000000004",
@@ -140,18 +111,18 @@
     {
       "id": "2000000000000006",
       "fromNode": "1000000000000006",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "1000000000000005",
-      "toSide": "bottom",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "Staff Reject"
     },
     {
       "id": "2000000000000007",
       "fromNode": "1000000000000006",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "1000000000000007",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "Staff Approve"
     },

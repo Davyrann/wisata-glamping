@@ -77,8 +77,8 @@
                 <span class="text-xs sm:text-sm text-[#444444] font-serif">Garansi Refund Berasuransi</span>
             </div>
             <div class="border-l-2 border-[#1D1D1C] pl-4">
-                <span class="block font-mono text-2xl sm:text-3xl font-bold">Rp 50 Rb</span>
-                <span class="text-xs sm:text-sm text-[#444444] font-serif">Deposit Jaminan Terlindungi</span>
+                <span class="block font-mono text-2xl sm:text-3xl font-bold">Rp 25 Rb</span>
+                <span class="text-xs sm:text-sm text-[#444444] font-serif">Opsi Asuransi Pembatalan</span>
             </div>
         </div>
 
@@ -264,109 +264,97 @@
     </div>
 </section>
 
-{{-- 3. SECTION PERLENGKAPAN CAMPING (ADD-ON) --}}
-<section id="alat" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
+{{-- 3. SECTION FASILITAS UNGGULAN GLAMPING (INCLUDED) --}}
+<section id="fasilitas" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header Section -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-6 border-b border-[#E0DEDC]">
             <div>
                 <span class="font-mono text-xs uppercase tracking-widest text-[#969696] block mb-2">
-                    Add-on Perlengkapan
+                    Kenyamanan Lengkap
                 </span>
                 <h2 class="text-2xl sm:text-4xl font-sans font-bold text-[#1D1D1C]">
-                    Sewa Alat Camping Tambahan
+                    Fasilitas Unggulan Setiap Unit
                 </h2>
             </div>
             <p class="font-serif text-sm sm:text-base text-[#444444] max-w-md">
-                Tersedia untuk disewa bersamaan dengan pemesanan kamar glamping. Dihitung berdasarkan tarif harian sesuai durasi malam sewa kamar Anda.
+                Setiap reservasi kamar glamping telah dilengkapi dengan fasilitas esensial alpine untuk menjamin kehangatan dan ketenangan Anda tanpa perlu menyewa alat tambahan.
             </p>
         </div>
 
-        <!-- 4 Equipment Cards Grid -->
+        <!-- 4 Included Facility Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <!-- Item 1: Cooking Set -->
+            <!-- Item 1: Firepit & Wood -->
             <div class="border border-[#E0DEDC] bg-white p-6 flex flex-col justify-between">
                 <div>
                     <span class="inline-block px-2.5 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC] text-[10px] font-mono uppercase text-[#444444] mb-4">
-                        Kuliner & Memasak
+                        Suasana Malam
                     </span>
                     <h3 class="text-lg font-bold font-sans text-[#1D1D1C] mb-2">
-                        Cooking Set & Kompor Ultralight
+                        Perapian Batu & Kayu Bakar
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed mb-4">
-                        Kompor gas windproof portabel, panci nesting 3 susun, teko air mini, sendok spatula kayu, serta 1 kaleng gas baru siap pakai.
+                        Area api unggun privat di dekat tenda lengkap dengan pasokan kayu bakar kering berkualitas dan tempat duduk teras kayu yang hangat.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-[#E0DEDC]">
-                    <div class="flex items-baseline justify-between">
-                        <span class="text-base font-bold font-mono text-[#1D1D1C]">Rp 45.000</span>
-                        <span class="text-[11px] font-mono text-[#969696]"> / hari sewa</span>
-                    </div>
+                    <span class="text-xs font-mono font-semibold text-[#1D1D1C] uppercase tracking-wider">Sudah Termasuk Unit</span>
                 </div>
             </div>
 
-            <!-- Item 2: Camping Chair & Table -->
+            <!-- Item 2: Sanitasi & Water Heater -->
             <div class="border border-[#E0DEDC] bg-white p-6 flex flex-col justify-between">
                 <div>
                     <span class="inline-block px-2.5 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC] text-[10px] font-mono uppercase text-[#444444] mb-4">
-                        Relaksasi Teras
+                        Kebersihan Higienis
                     </span>
                     <h3 class="text-lg font-bold font-sans text-[#1D1D1C] mb-2">
-                        Kursi Reclining & Meja Kayu
+                        Pancuran Air Panas 24 Jam
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed mb-4">
-                        Sepasang kursi lipat kanvas ergonomis dengan rangka alumunium kokoh serta meja lipat kayu pinus natural untuk seduh kopi sore.
+                        Sanitasi modern dengan water heater bersuhu stabil, handuk katun bersih, serta perlengkapan mandi herbal ramah lingkungan pegunungan.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-[#E0DEDC]">
-                    <div class="flex items-baseline justify-between">
-                        <span class="text-base font-bold font-mono text-[#1D1D1C]">Rp 35.000</span>
-                        <span class="text-[11px] font-mono text-[#969696]"> / hari sewa</span>
-                    </div>
+                    <span class="text-xs font-mono font-semibold text-[#1D1D1C] uppercase tracking-wider">Sudah Termasuk Unit</span>
                 </div>
             </div>
 
-            <!-- Item 3: Ambient Lantern -->
+            <!-- Item 3: Kelistrikan & Wi-Fi -->
             <div class="border border-[#E0DEDC] bg-white p-6 flex flex-col justify-between">
                 <div>
                     <span class="inline-block px-2.5 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC] text-[10px] font-mono uppercase text-[#444444] mb-4">
-                        Pencahayaan Malam
+                        Konektivitas Stabil
                     </span>
                     <h3 class="text-lg font-bold font-sans text-[#1D1D1C] mb-2">
-                        Lentera Retro Ambient LED
+                        Listrik 24 Jam & Wi-Fi Area
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed mb-4">
-                        Lentera estetik bergaya klasik dengan baterai isi ulang tahan 20 jam dan pengatur tingkat kehangatan cahaya untuk malam intim.
+                        Stopkontak pengisian daya gawai di dalam tenda, lentera baca ambient hangat, serta akses jaringan internet nirkabel di seluruh area santai.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-[#E0DEDC]">
-                    <div class="flex items-baseline justify-between">
-                        <span class="text-base font-bold font-mono text-[#1D1D1C]">Rp 25.000</span>
-                        <span class="text-[11px] font-mono text-[#969696]"> / hari sewa</span>
-                    </div>
+                    <span class="text-xs font-mono font-semibold text-[#1D1D1C] uppercase tracking-wider">Sudah Termasuk Unit</span>
                 </div>
             </div>
 
-            <!-- Item 4: Sleeping Bag & Matras -->
+            <!-- Item 4: Sarapan & Racikan Kopi -->
             <div class="border border-[#E0DEDC] bg-white p-6 flex flex-col justify-between">
                 <div>
                     <span class="inline-block px-2.5 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC] text-[10px] font-mono uppercase text-[#444444] mb-4">
-                        Kenyamanan Ekstra
+                        Kuliner Hangat
                     </span>
                     <h3 class="text-lg font-bold font-sans text-[#1D1D1C] mb-2">
-                        Sleeping Bag Bulu Angsa & Matras
+                        Sarapan Alpine & Racikan Teh
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed mb-4">
-                        Kantong tidur bulu angsa berspesifikasi kenyamanan hingga suhu 5°C dilengkapi matras busa insulasi dinginnya tanah pegunungan.
+                        Menu sarapan pagi segar diantar ke teras kabin, teko pemanas air, serta pilihan seduhan teh herbal dan biji kopi lokal dataran tinggi.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-[#E0DEDC]">
-                    <div class="flex items-baseline justify-between">
-                        <span class="text-base font-bold font-mono text-[#1D1D1C]">Rp 40.000</span>
-                        <span class="text-[11px] font-mono text-[#969696]"> / hari sewa</span>
-                    </div>
+                    <span class="text-xs font-mono font-semibold text-[#1D1D1C] uppercase tracking-wider">Sudah Termasuk Unit</span>
                 </div>
             </div>
 
@@ -376,10 +364,10 @@
         <div class="mt-8 p-4 border border-[#E0DEDC] bg-[#E0DEDC]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-[#444444]">
             <div class="flex items-center gap-2">
                 <span class="w-2 h-2 bg-[#1D1D1C]"></span>
-                <span>Seluruh alat camping dicek kondisi fisiknya saat serah terima check-in dan check-out.</span>
+                <span>Kondisi kamar dan kelengkapan fasilitas diverifikasi bersama saat serah terima check-in dan check-out.</span>
             </div>
             <a href="#kebijakan" class="underline hover:text-black">
-                Pelajari Ketentuan Checklist & Deposit
+                Pelajari Ketentuan Asuransi & Kebijakan
             </a>
         </div>
 
@@ -427,14 +415,14 @@
                 <div>
                     <span class="font-mono text-xs text-[#969696] uppercase tracking-wider block mb-2">Langkah 02</span>
                     <h3 class="text-base font-bold font-sans text-[#1D1D1C] mb-3">
-                        Add-on Alat Camping
+                        Data Kontak Tamu
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed">
-                        Tambahkan perlengkapan tambahan seperti alat masak, kursi santai, atau lentera untuk melengkapi kebutuhan aktivitas Anda.
+                        Lengkapi nama lengkap, alamat email, dan nomor telepon aktif untuk penerbitan konfirmasi dan kartu digital reservasi Anda.
                     </p>
                 </div>
                 <div class="mt-6 text-[11px] font-mono text-[#969696]">
-                    Opsional & Fleksibel
+                    Verifikasi Instan
                 </div>
             </div>
 
@@ -443,14 +431,14 @@
                 <div>
                     <span class="font-mono text-xs text-[#969696] uppercase tracking-wider block mb-2">Langkah 03</span>
                     <h3 class="text-base font-bold font-sans text-[#1D1D1C] mb-3">
-                        Asuransi & Deposit
+                        Asuransi Pembatalan
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed">
-                        Pilih opsi Asuransi Pembatalan (Rp 25.000) untuk jaminan refund, serta Deposit Jaminan Rp 50.000 yang dikembalikan saat check-out.
+                        Pilih opsi Asuransi Pembatalan (flat Rp 25.000) untuk garansi pengembalian dana hingga 100% jika perjalanan Anda tertunda.
                     </p>
                 </div>
                 <div class="mt-6 text-[11px] font-mono text-[#969696]">
-                    Perlindungan Transaksi
+                    Jaminan Fleksibel
                 </div>
             </div>
 
@@ -459,14 +447,14 @@
                 <div>
                     <span class="font-mono text-xs text-[#969696] uppercase tracking-wider block mb-2">Langkah 04</span>
                     <h3 class="text-base font-bold font-sans text-[#1D1D1C] mb-3">
-                        Bayar QRIS 15 Menit
+                        Simulasi Bayar QRIS
                     </h3>
                     <p class="font-serif text-xs text-[#444444] leading-relaxed">
-                        Sistem mengunci stok selama 15 menit dengan simulasi QRIS dummy. Konfirmasi instan mengalihkan status booking ke confirmed.
+                        Lakukan pembayaran sandbox melalui QRIS dummy. Konfirmasi instan langsung mengalihkan status reservasi Anda menjadi confirmed.
                     </p>
                 </div>
                 <div class="mt-6 text-[11px] font-mono text-[#969696]">
-                    Simulasi Otomatis
+                    Sandbox Tanpa Biaya
                 </div>
             </div>
 
@@ -504,14 +492,14 @@
                 Transparansi Biaya dan Kebijakan Refund
             </h2>
             <p class="font-serif text-sm sm:text-base text-[#969696]">
-                Kami menjamin kejelasan rincian biaya tanpa biaya tersembunyi. Pelajari aturan deposit dan pengembalian dana sebelum melakukan reservasi.
+                Kami menjamin kejelasan rincian tarif tanpa biaya tersembunyi. Pelajari aturan asuransi dan pengembalian dana sebelum melakukan reservasi.
             </p>
         </div>
 
         <!-- 2 Column Policy Details -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             
-            <!-- Left: Formula & Deposit Structure -->
+            <!-- Left: Formula & Financial Structure -->
             <div class="border border-[#353536] bg-[#0F0F10] p-6 sm:p-8 space-y-6">
                 <div class="flex items-center gap-2 font-mono text-xs text-[#969696] uppercase tracking-wider">
                     <span class="w-2 h-2 bg-white"></span>
@@ -519,7 +507,7 @@
                 </div>
                 
                 <div class="p-4 bg-[#1D1D1E] border border-[#353536] font-mono text-xs text-white leading-relaxed">
-                    Total Bayar = (Tarif Kamar x Malam) + (Tarif Alat x Jumlah x Malam) + Premi Asuransi + Deposit Jaminan
+                    Total Bayar = (Tarif Kamar x Jumlah Malam) + Premi Asuransi Pembatalan (Opsional)
                 </div>
 
                 <div class="space-y-4 font-sans text-xs sm:text-sm text-[#969696]">
@@ -528,12 +516,12 @@
                         Check-in resmi dibuka pukul 14.00 WIB dan check-out selesai pukul 12.00 WIB hari berikutnya.
                     </div>
                     <div class="border-b border-[#29292A] pb-3">
-                        <span class="font-bold text-white block mb-1">Deposit Jaminan Kerusakan (Rp 50.000)</span>
-                        Dibayar flat di awal saat checkout. Dikembalikan 100% saat check-out bila seluruh unit kamar dan alat sewa terverifikasi dalam kondisi baik oleh staf.
+                        <span class="font-bold text-white block mb-1">Bebas Biaya Deposit</span>
+                        Tidak ada deposit jaminan kerusakan. Seluruh biaya menginap terhitung murni dari tarif sewa unit kamar glamping pilihan Anda.
                     </div>
                     <div>
-                        <span class="font-bold text-white block mb-1">Asuransi Pembatalan (Rp 25.000 Opsional)</span>
-                        Memberikan proteksi pengembalian biaya sewa kamar dan alat apabila Anda perlu membatalkan perjalanan sebelum tanggal check-in.
+                        <span class="font-bold text-white block mb-1">Asuransi Pembatalan (Flat Rp 25.000)</span>
+                        Fitur opsional yang memberikan hak pengembalian dana sewa kamar (hingga 100%) jika Anda membatalkan kunjungan sebelum proses check-in.
                     </div>
                 </div>
             </div>
@@ -546,7 +534,7 @@
                 </div>
 
                 <p class="font-serif text-xs sm:text-sm text-[#969696]">
-                    Permohonan pembatalan diajukan melalui dashboard akun sebelum tanggal mulai sewa (sebelum proses check-in dilakukan staf).
+                    Permohonan pembatalan diajukan melalui sistem sebelum tanggal mulai sewa (sebelum proses check-in dilakukan oleh staf).
                 </p>
 
                 <!-- Comparison Table -->
@@ -554,7 +542,7 @@
                     <table class="w-full text-left font-mono text-xs border border-[#353536]">
                         <thead class="bg-[#1D1D1E] text-white">
                             <tr>
-                                <th class="p-3 border-b border-r border-[#353536]">Kondisi Pembatalan</th>
+                                <th class="p-3 border-b border-r border-[#353536]">Waktu Pembatalan</th>
                                 <th class="p-3 border-b border-r border-[#353536]">Dengan Asuransi</th>
                                 <th class="p-3 border-b border-[#353536]">Tanpa Asuransi</th>
                             </tr>
@@ -566,11 +554,11 @@
                                 </td>
                                 <td class="p-3 border-r border-[#353536] text-white font-bold">
                                     Refund 100% Biaya Sewa
-                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Deposit kembali, premi hangus</span>
+                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Premi asuransi Rp 25.000 hangus</span>
                                 </td>
                                 <td class="p-3 text-red-400 font-bold">
-                                    Refund 0% Biaya Sewa
-                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Hanya deposit Rp 50.000 kembali</span>
+                                    Refund 0%
+                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Biaya sewa kamar hangus</span>
                                 </td>
                             </tr>
                             <tr>
@@ -579,11 +567,11 @@
                                 </td>
                                 <td class="p-3 border-r border-[#353536] text-white font-bold">
                                     Refund 50% Biaya Sewa
-                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Deposit kembali, premi hangus</span>
+                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Premi asuransi Rp 25.000 hangus</span>
                                 </td>
                                 <td class="p-3 text-red-400 font-bold">
-                                    Refund 0% Biaya Sewa
-                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Hanya deposit Rp 50.000 kembali</span>
+                                    Refund 0%
+                                    <span class="block text-[10px] text-[#969696] font-normal font-sans">Biaya sewa kamar hangus</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -591,7 +579,7 @@
                 </div>
 
                 <p class="text-[11px] font-mono text-[#969696]">
-                    Catatan : Pengembalian dana diproses secara administratif pada riwayat sistem setelah disetujui staf operasional.
+                    Catatan: Pengembalian dana dicatat secara administratif pada sistem setelah permohonan disetujui staf operasional.
                 </p>
             </div>
 
@@ -717,7 +705,100 @@
     </div>
 </section>
 
-{{-- 7. SECTION LOKASI & KONTAK --}}
+{{-- 7. SECTION CEK STATUS RESERVASI --}}
+<section id="cek-reservasi" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <!-- Left Info (Col 5) -->
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-[#969696] block mb-2">
+                        Pelacakan Digital
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-sans font-bold text-[#1D1D1C] mb-4">
+                        Cek Status Booking & Kartu Digital
+                    </h2>
+                    <p class="font-serif text-sm sm:text-base text-[#444444] leading-relaxed">
+                        Lacak kepastian reservasi Anda secara mandiri. Tunjukkan kartu digital dan kode QR saat tiba di lokasi untuk proses serah terima kamar yang cepat.
+                    </p>
+                </div>
+
+                <div class="space-y-3 font-mono text-xs border border-[#E0DEDC] bg-white p-5">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-[#1D1D1C]"></span>
+                        <span class="text-[#1D1D1C] font-semibold">Akses Tanpa Login</span>
+                    </div>
+                    <p class="font-serif text-xs text-[#444444] leading-relaxed">
+                        Cukup gunakan kode booking unik dan email atau nomor telepon yang didaftarkan saat pemesanan.
+                    </p>
+                    <div class="pt-3 border-t border-[#E0DEDC] flex flex-wrap gap-2 text-[10px] text-[#969696]">
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Unpaid</span>
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Confirmed</span>
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Checked In</span>
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Card (Col 7) -->
+            <div class="lg:col-span-7">
+                <div class="border border-[#1D1D1C] bg-white p-6 sm:p-10 shadow-[0_6px_20px_rgba(0,0,0,0.04)]">
+                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E0DEDC]">
+                        <span class="font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold">
+                            Formulir Pelacakan Reservasi
+                        </span>
+                        <span class="font-mono text-[11px] text-[#969696]">
+                            Verifikasi Real-time
+                        </span>
+                    </div>
+
+                    <form action="#" method="GET" class="space-y-5">
+                        <div>
+                            <label for="booking_code" class="block font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold mb-2">
+                                Kode Booking Unik
+                            </label>
+                            <input type="text"
+                                   id="booking_code"
+                                   name="booking_code"
+                                   placeholder="Contoh: GLAMP-2026-ABCD"
+                                   class="w-full px-4 py-3 border border-[#E0DEDC] bg-[#F9F7F5] text-sm font-mono text-[#1D1D1C] placeholder-[#969696] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:bg-white transition-all rounded-[3px]">
+                            <span class="block font-serif text-[11px] text-[#969696] mt-1.5">
+                                Kode alfanumerik tertera pada bukti pesanan atau konfirmasi pembayaran.
+                            </span>
+                        </div>
+
+                        <div>
+                            <label for="contact_lookup" class="block font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold mb-2">
+                                Email atau Nomor Telepon
+                            </label>
+                            <input type="text"
+                                   id="contact_lookup"
+                                   name="contact_lookup"
+                                   placeholder="Contoh: tamu@domain.test / 081234567890"
+                                   class="w-full px-4 py-3 border border-[#E0DEDC] bg-[#F9F7F5] text-sm font-mono text-[#1D1D1C] placeholder-[#969696] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:bg-white transition-all rounded-[3px]">
+                            <span class="block font-serif text-[11px] text-[#969696] mt-1.5">
+                                Gunakan kontak yang sama saat mengisi formulir checkout pemesanan.
+                            </span>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="button"
+                                    class="w-full inline-flex items-center justify-center px-6 py-4 bg-[#1D1D1C] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:ring-offset-2">
+                                Periksa Status Reservasi & Kartu Digital
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{{-- 8. SECTION LOKASI & KONTAK --}}
 <section id="kontak" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -815,10 +896,10 @@
 
                     <div class="border border-[#E0DEDC] bg-white p-5">
                         <h4 class="font-bold text-sm font-sans text-[#1D1D1C] mb-2">
-                            Bagaimana cara kerja pengembalian deposit jaminan Rp 50.000?
+                            Bagaimana ketentuan pembatalan dan klaim asuransi reservasi?
                         </h4>
                         <p class="font-serif text-xs text-[#444444] leading-relaxed">
-                            Saat proses check-out pada pukul 12.00 WIB, staf kami akan melakukan checklist cepat kondisi fisik tenda dan perlengkapan sewa. Jika semua dalam kondisi baik, deposit Rp 50.000 diselesaikan dan dikembalikan secara penuh pada hari yang sama.
+                            Permohonan pembatalan dapat diajukan sebelum tanggal check-in. Apabila Anda memilih Asuransi Pembatalan (Rp 25.000), Anda berhak atas refund 100% biaya sewa untuk pembatalan lebih dari 3 hari sebelum menginap, atau refund 50% untuk pembatalan dalam rentang 3 hari atau kurang. Tanpa asuransi, biaya sewa kamar tidak dapat dikembalikan.
                         </p>
                     </div>
 

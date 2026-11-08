@@ -16,21 +16,24 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-[#444444]" aria-label="Navigasi Utama">
+            <nav class="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-[#444444]" aria-label="Navigasi Utama">
                 <a href="#kamar" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
                     Kamar Glamping
                 </a>
-                <a href="#alat" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
-                    Peralatan Camping
+                <a href="#fasilitas" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                    Fasilitas
                 </a>
                 <a href="#panduan" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
                     Alur Reservasi
+                </a>
+                <a href="#cek-reservasi" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                    Cek Booking
                 </a>
                 <a href="#artikel" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
                     Edukasi
                 </a>
                 <a href="#kontak" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
-                    Lokasi & Kontak
+                    Kontak
                 </a>
             </nav>
 
@@ -64,11 +67,14 @@
         <a href="#kamar" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
             Kamar Glamping
         </a>
-        <a href="#alat" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
-            Peralatan Camping
+        <a href="#fasilitas" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+            Fasilitas Glamping
         </a>
         <a href="#panduan" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
             Alur Reservasi
+        </a>
+        <a href="#cek-reservasi" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+            Cek Status Booking
         </a>
         <a href="#artikel" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
             Edukasi

@@ -18,9 +18,10 @@ test('landing page contains all required sections from PRD', function () {
 
     // Section anchors
     $response->assertSee('id="kamar"', false);
-    $response->assertSee('id="alat"', false);
+    $response->assertSee('id="fasilitas"', false);
     $response->assertSee('id="panduan"', false);
     $response->assertSee('id="kebijakan"', false);
+    $response->assertSee('id="cek-reservasi"', false);
     $response->assertSee('id="artikel"', false);
     $response->assertSee('id="kontak"', false);
 
@@ -29,15 +30,15 @@ test('landing page contains all required sections from PRD', function () {
     $response->assertSee('Alpine Geodesic Dome');
     $response->assertSee('Bell Tent Pine Retreat');
 
-    // Equipment add-ons from PRD
-    $response->assertSee('Cooking Set & Kompor Ultralight', false);
-    $response->assertSee('Kursi Reclining & Meja Kayu', false);
-    $response->assertSee('Lentera Retro Ambient LED');
-    $response->assertSee('Sleeping Bag Bulu Angsa & Matras', false);
+    // Included Glamping facilities from PRD
+    $response->assertSee('Perapian Batu & Kayu Bakar', false);
+    $response->assertSee('Pancuran Air Panas 24 Jam');
+    $response->assertSee('Listrik 24 Jam & Wi-Fi Area', false);
+    $response->assertSee('Sarapan Alpine & Racikan Teh', false);
 
     // Financial rules from PRD
-    $response->assertSee('Deposit Jaminan Kerusakan (Rp 50.000)');
-    $response->assertSee('Asuransi Pembatalan (Rp 25.000 Opsional)');
+    $response->assertSee('Bebas Biaya Deposit');
+    $response->assertSee('Asuransi Pembatalan (Flat Rp 25.000)');
     $response->assertSee('14.00 WIB');
     $response->assertSee('12.00 WIB');
 
@@ -49,11 +50,11 @@ test('landing page contains all required sections from PRD', function () {
 
 test('all referenced images exist in public images directory', function () {
     $images = [
-        'Mountain_View.jpg',
-        'Night_Camp.jpg',
-        'Moutanin_with_Snow_on_top.jpg',
-        'Mountain_with_Campfire.jpg',
-        'Marshmellow.jpg',
+        'Camp_premium.jpg',
+        'Camp_with_chair.jpg',
+        'Camp_from_above.jpg',
+        'High_standart_camp.jpg',
+        'Bed_photo.jpg',
     ];
 
     foreach ($images as $image) {

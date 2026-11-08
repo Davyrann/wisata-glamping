@@ -22,7 +22,7 @@ Setiap agent **WAJIB** membaca dan mematuhi seluruh aturan pada section `# Keten
 
 ---
 
-## Critical Business Invariants (PRD Rules)
+## Critical Business Invariants (PRD Rules - Kelas B)
 - **Role-Based Access Control**:
   - Roles: `admin`, `staff`, `user`.
   - Public registration (`/register`) **only** creates `user`. `staff` and `admin` accounts can only be provisioned via Admin panel or seeders.
@@ -30,24 +30,24 @@ Setiap agent **WAJIB** membaca dan mematuhi seluruh aturan pada section `# Keten
     - Admin: `admin@demo.test` / `Admin#2026`
     - Staff: `staff@demo.test` / `Staff#2026`
     - User: `user@demo.test` / `User#2026`
-- **Booking & Inventory Concurrency**:
-  - 1 Glamping Room + multiple equipment items as add-ons (`booking_items`).
+- **Booking & Room Inventory**:
+  - Reservasi kamar/paket glamping (`rooms`).
   - Rental duration is counted **per night** (Check-in 14:00 WIB, Check-out 12:00 WIB).
-  - Status `unpaid` holds inventory stock for **15 minutes** with a dummy QRIS timer. Stock releases back to inventory immediately upon expiry or payment failure.
-  - Concurrency protection: Always wrap stock checks and deductions in `DB::transaction()` using `lockForUpdate()`.
-- **Financial & Refund Logic**:
+  - Status `unpaid` mengarah ke halaman sandbox dengan simulasi QRIS dummy ("Simulasikan Bayar Berhasil" dan "Batalkan Pesanan").
+  - Concurrency & Stock Validation: Pengecekan stok kamar per rentang tanggal dibungkus dalam `DB::transaction()`.
+- **Financial & Refund Logic (Khusus Glamping Kelas B)**:
   - Asuransi Pembatalan: Flat **Rp 25.000** (opsional).
-  - Deposit Jaminan: Flat **Rp 50.000** (wajib, dibayar di awal, diselesaikan saat check-out).
   - Pembatalan (hanya sebelum check-in):
-    - Dengan asuransi: $> 3$ hari = refund 100% biaya sewa; $\le 3$ hari = refund 50% biaya sewa (premi hangus, deposit kembali).
-    - Tanpa asuransi: refund 0% biaya sewa (deposit tetap kembali).
-  - Simpan permohonan pembatalan di tabel `cancellation_requests` (bukan field campur di `bookings`).
+    - Dengan asuransi: $> 3$ hari sebelum check-in = refund 100% biaya sewa (premi asuransi hangus).
+    - Dengan asuransi: $\le 3$ hari sebelum check-in = refund 50% biaya sewa (premi asuransi hangus).
+    - Tanpa asuransi: refund 0% biaya sewa.
+  - Permohonan pembatalan tersimpan di tabel `cancellation_requests`.
 - **Serah Terima & Check-out**:
-  - Kartu digital user memuat QR dummy dan kode booking teks manual (fallback jika scan QR gagal).
-  - Checklist dinamis per barang (kondisi: Baik, Rusak, Hilang) disimpan di tabel `checklists`.
-  - Saat check-out, staff mencatat potongan deposit (Rp 0 - Rp 50.000) dan catatan kerusakan sebelum status menjadi `completed`.
+  - Tamu dan user dapat mengecek reservasi via kode booking + email/telepon.
+  - Kartu digital memuat status confirmed dan QR dummy.
+  - Checklist serah terima kamar saat check-in (`checked_in`) dan check-out (`completed`).
 - **Audit Logging**:
-  - Setiap tindakan Staff/Admin (approve/reject pembatalan, check-in/out, pemotongan deposit, mutasi stok, CRUD inventori/artikel) wajib dicatat di tabel `activity_logs`.
+  - Setiap tindakan Staff/Admin (approve/reject pembatalan, check-in/out, CRUD inventori/artikel) wajib dicatat di tabel `activity_logs`.
 
 ---
 
@@ -157,6 +157,16 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 
 - Laravel can be deployed using [Laravel Cloud](https://cloud.laravel.com/), which is the fastest way to deploy and scale production Laravel applications.
 - Activate the `deploying-to-cloud` skill whenever deploying to Laravel Cloud, configuring Cloud environments or resources, using the Cloud CLI, or troubleshooting Cloud deployments.
+
+=== tests rules ===
+
+# Test Enforcement
+
+- Add or update tests for behavior and logic changes when a test provides meaningful regression coverage.
+- Pure copy, styling, and layout-only changes do not require new or updated tests.
+- When test coverage applies, run the affected tests and ensure they pass.
+- Test the changed behavior and its important failure modes, but do not add tests beyond them.
+- Read the `testing-best-practices` skill before writing tests.
 
 === laravel/core rules ===
 

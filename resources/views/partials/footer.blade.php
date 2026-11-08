@@ -27,9 +27,10 @@
                 </h4>
                 <ul class="space-y-2.5 font-serif text-sm text-[#969696]">
                     <li><a href="#kamar" class="hover:text-white transition-colors">Tipe Kamar Glamping</a></li>
-                    <li><a href="#alat" class="hover:text-white transition-colors">Perlengkapan Camping</a></li>
+                    <li><a href="#fasilitas" class="hover:text-white transition-colors">Fasilitas Unggulan</a></li>
                     <li><a href="#panduan" class="hover:text-white transition-colors">Panduan & Alur Reservasi</a></li>
-                    <li><a href="#kebijakan" class="hover:text-white transition-colors">Deposit & Pembatalan</a></li>
+                    <li><a href="#cek-reservasi" class="hover:text-white transition-colors">Cek Status Booking</a></li>
+                    <li><a href="#kebijakan" class="hover:text-white transition-colors">Kebijakan & Asuransi</a></li>
                     <li><a href="#artikel" class="hover:text-white transition-colors">Jurnal & Tips Outdoor</a></li>
                 </ul>
             </div>
@@ -49,12 +50,12 @@
                         <span class="font-mono text-white">12.00 WIB</span>
                     </div>
                     <div class="flex justify-between items-center py-1 border-b border-[#1D1D1C]">
-                        <span>Hold Pembayaran QRIS</span>
-                        <span class="font-mono text-white">15 Menit</span>
+                        <span>Simulasi Sandbox QRIS</span>
+                        <span class="font-mono text-white">Instan</span>
                     </div>
                     <div class="flex justify-between items-center py-1 border-b border-[#1D1D1C]">
-                        <span>Deposit Kerusakan</span>
-                        <span class="font-mono text-white">Rp 50.000 (Refundable)</span>
+                        <span>Asuransi Pembatalan</span>
+                        <span class="font-mono text-white">Opsional (Rp 25.000)</span>
                     </div>
                 </div>
             </div>
