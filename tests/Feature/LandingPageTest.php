@@ -80,3 +80,21 @@ test('rendered views do not contain forbidden em dash characters', function () {
     expect(str_contains($landingHtml, '—'))->toBeFalse('Landing page tidak boleh memuat karakter em dash (—).');
     expect(str_contains($loginHtml, '—'))->toBeFalse('Error page tidak boleh memuat karakter em dash (—).');
 });
+
+test('landing page and layout have proper favicon and app icons configured', function () {
+    $response = get(route('home'));
+
+    $response->assertSee('favicon.svg');
+    $response->assertSee('favicon-32x32.png');
+    $response->assertSee('favicon-16x16.png');
+    $response->assertSee('apple-touch-icon.png');
+    $response->assertSee('favicon.ico');
+    $response->assertSee('site.webmanifest');
+
+    expect(file_exists(public_path('favicon.svg')))->toBeTrue();
+    expect(file_exists(public_path('favicon.ico')))->toBeTrue();
+    expect(file_exists(public_path('favicon-32x32.png')))->toBeTrue();
+    expect(file_exists(public_path('favicon-16x16.png')))->toBeTrue();
+    expect(file_exists(public_path('apple-touch-icon.png')))->toBeTrue();
+    expect(file_exists(public_path('site.webmanifest')))->toBeTrue();
+});

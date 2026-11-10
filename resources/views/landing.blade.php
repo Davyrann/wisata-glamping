@@ -5,11 +5,11 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="relative bg-[#F9F7F5] pt-8 sm:pt-16 pb-16 sm:pb-24 border-b border-[#E0DEDC]">
+<section class="relative bg-[#F9F7F5] pt-6 sm:pt-10 pb-16 sm:pb-24 border-b border-[#E0DEDC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Metadata Header Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#E0DEDC] pb-4 mb-8 sm:mb-12 font-mono text-xs text-[#444444] uppercase tracking-widest">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#E0DEDC] pb-4 mb-8 sm:mb-10 font-mono text-xs text-[#444444] uppercase tracking-widest">
             <div class="flex items-center gap-3">
                 <span class="w-2 h-2 bg-[#1D1D1C]"></span>
                 <span>Elevasi 1.620 mdpl</span>
@@ -86,7 +86,7 @@
 </section>
 
 {{-- 2. SECTION KAMAR GLAMPING --}}
-<section id="kamar" class="py-16 sm:py-24 bg-white border-b border-[#E0DEDC] scroll-mt-20">
+<section id="kamar" class="py-16 sm:py-24 bg-white border-b border-[#E0DEDC] scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
@@ -265,7 +265,7 @@
 </section>
 
 {{-- 3. SECTION FASILITAS UNGGULAN GLAMPING (INCLUDED) --}}
-<section id="fasilitas" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
+<section id="fasilitas" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header Section -->
@@ -375,7 +375,7 @@
 </section>
 
 {{-- 4. SECTION PANDUAN CARA RESERVASI --}}
-<section id="panduan" class="py-16 sm:py-24 bg-white border-b border-[#E0DEDC] scroll-mt-20">
+<section id="panduan" class="py-16 sm:py-24 bg-white border-b border-[#E0DEDC] scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header -->
@@ -480,7 +480,7 @@
 </section>
 
 {{-- 5. SECTION TRANSPARANSI KETENTUAN BIAYA & REFUND --}}
-<section id="kebijakan" class="py-16 sm:py-24 bg-[#1D1D1C] text-white scroll-mt-20">
+<section id="kebijakan" class="py-16 sm:py-24 bg-[#1D1D1C] text-white scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header -->
@@ -588,8 +588,101 @@
     </div>
 </section>
 
-{{-- 6. SECTION EDUKASI & ARTIKEL --}}
-<section id="artikel" class="py-16 sm:py-24 bg-white border-b border-[#E0DEDC] scroll-mt-20">
+{{-- 6. SECTION CEK STATUS RESERVASI --}}
+<section id="cek-reservasi" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-16 sm:scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <!-- Left Info (Col 5) -->
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-[#969696] block mb-2">
+                        Pelacakan Digital
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-sans font-bold text-[#1D1D1C] mb-4">
+                        Cek Status Booking & Kartu Digital
+                    </h2>
+                    <p class="font-serif text-sm sm:text-base text-[#444444] leading-relaxed">
+                        Lacak kepastian reservasi Anda secara mandiri. Tunjukkan kartu digital dan kode QR saat tiba di lokasi untuk proses serah terima kamar yang cepat.
+                    </p>
+                </div>
+
+                <div class="space-y-3 font-mono text-xs border border-[#E0DEDC] bg-white p-5">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-[#1D1D1C]"></span>
+                        <span class="text-[#1D1D1C] font-semibold">Akses Tanpa Login</span>
+                    </div>
+                    <p class="font-serif text-xs text-[#444444] leading-relaxed">
+                        Cukup gunakan kode booking unik dan email atau nomor telepon yang didaftarkan saat pemesanan.
+                    </p>
+                    <div class="pt-3 border-t border-[#E0DEDC] flex flex-wrap gap-2 text-[10px] text-[#969696]">
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Unpaid</span>
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Confirmed</span>
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Checked In</span>
+                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Card (Col 7) -->
+            <div class="lg:col-span-7">
+                <div class="border border-[#1D1D1C] bg-white p-6 sm:p-10 shadow-[0_6px_20px_rgba(0,0,0,0.04)]">
+                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E0DEDC]">
+                        <span class="font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold">
+                            Formulir Pelacakan Reservasi
+                        </span>
+                        <span class="font-mono text-[11px] text-[#969696]">
+                            Verifikasi Real-time
+                        </span>
+                    </div>
+
+                    <form action="#" method="GET" class="space-y-5">
+                        <div>
+                            <label for="booking_code" class="block font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold mb-2">
+                                Kode Booking Unik
+                            </label>
+                            <input type="text"
+                                   id="booking_code"
+                                   name="booking_code"
+                                   placeholder="Contoh: GLAMP-2026-ABCD"
+                                   class="w-full px-4 py-3 border border-[#E0DEDC] bg-[#F9F7F5] text-sm font-mono text-[#1D1D1C] placeholder-[#969696] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:bg-white transition-all rounded-[3px]">
+                            <span class="block font-serif text-[11px] text-[#969696] mt-1.5">
+                                Kode alfanumerik tertera pada bukti pesanan atau konfirmasi pembayaran.
+                            </span>
+                        </div>
+
+                        <div>
+                            <label for="contact_lookup" class="block font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold mb-2">
+                                Email atau Nomor Telepon
+                            </label>
+                            <input type="text"
+                                   id="contact_lookup"
+                                   name="contact_lookup"
+                                   placeholder="Contoh: tamu@domain.test / 081234567890"
+                                   class="w-full px-4 py-3 border border-[#E0DEDC] bg-[#F9F7F5] text-sm font-mono text-[#1D1D1C] placeholder-[#969696] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:bg-white transition-all rounded-[3px]">
+                            <span class="block font-serif text-[11px] text-[#969696] mt-1.5">
+                                Gunakan kontak yang sama saat mengisi formulir checkout pemesanan.
+                            </span>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="button"
+                                    class="w-full inline-flex items-center justify-center px-6 py-4 bg-[#1D1D1C] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:ring-offset-2">
+                                Periksa Status Reservasi & Kartu Digital
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{{-- 7. SECTION EDUKASI & ARTIKEL --}}
+<section id="artikel" class="py-16 sm:py-24 bg-white border-b border-[#E0DEDC] scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header -->
@@ -705,101 +798,8 @@
     </div>
 </section>
 
-{{-- 7. SECTION CEK STATUS RESERVASI --}}
-<section id="cek-reservasi" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            <!-- Left Info (Col 5) -->
-            <div class="lg:col-span-5 space-y-6">
-                <div>
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#969696] block mb-2">
-                        Pelacakan Digital
-                    </span>
-                    <h2 class="text-2xl sm:text-4xl font-sans font-bold text-[#1D1D1C] mb-4">
-                        Cek Status Booking & Kartu Digital
-                    </h2>
-                    <p class="font-serif text-sm sm:text-base text-[#444444] leading-relaxed">
-                        Lacak kepastian reservasi Anda secara mandiri. Tunjukkan kartu digital dan kode QR saat tiba di lokasi untuk proses serah terima kamar yang cepat.
-                    </p>
-                </div>
-
-                <div class="space-y-3 font-mono text-xs border border-[#E0DEDC] bg-white p-5">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-2 bg-[#1D1D1C]"></span>
-                        <span class="text-[#1D1D1C] font-semibold">Akses Tanpa Login</span>
-                    </div>
-                    <p class="font-serif text-xs text-[#444444] leading-relaxed">
-                        Cukup gunakan kode booking unik dan email atau nomor telepon yang didaftarkan saat pemesanan.
-                    </p>
-                    <div class="pt-3 border-t border-[#E0DEDC] flex flex-wrap gap-2 text-[10px] text-[#969696]">
-                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Unpaid</span>
-                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Confirmed</span>
-                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Checked In</span>
-                        <span class="px-2 py-0.5 bg-[#F9F7F5] border border-[#E0DEDC]">Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Form Card (Col 7) -->
-            <div class="lg:col-span-7">
-                <div class="border border-[#1D1D1C] bg-white p-6 sm:p-10 shadow-[0_6px_20px_rgba(0,0,0,0.04)]">
-                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E0DEDC]">
-                        <span class="font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold">
-                            Formulir Pelacakan Reservasi
-                        </span>
-                        <span class="font-mono text-[11px] text-[#969696]">
-                            Verifikasi Real-time
-                        </span>
-                    </div>
-
-                    <form action="#" method="GET" class="space-y-5">
-                        <div>
-                            <label for="booking_code" class="block font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold mb-2">
-                                Kode Booking Unik
-                            </label>
-                            <input type="text"
-                                   id="booking_code"
-                                   name="booking_code"
-                                   placeholder="Contoh: GLAMP-2026-ABCD"
-                                   class="w-full px-4 py-3 border border-[#E0DEDC] bg-[#F9F7F5] text-sm font-mono text-[#1D1D1C] placeholder-[#969696] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:bg-white transition-all rounded-[3px]">
-                            <span class="block font-serif text-[11px] text-[#969696] mt-1.5">
-                                Kode alfanumerik tertera pada bukti pesanan atau konfirmasi pembayaran.
-                            </span>
-                        </div>
-
-                        <div>
-                            <label for="contact_lookup" class="block font-mono text-xs uppercase tracking-wider text-[#1D1D1C] font-semibold mb-2">
-                                Email atau Nomor Telepon
-                            </label>
-                            <input type="text"
-                                   id="contact_lookup"
-                                   name="contact_lookup"
-                                   placeholder="Contoh: tamu@domain.test / 081234567890"
-                                   class="w-full px-4 py-3 border border-[#E0DEDC] bg-[#F9F7F5] text-sm font-mono text-[#1D1D1C] placeholder-[#969696] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:bg-white transition-all rounded-[3px]">
-                            <span class="block font-serif text-[11px] text-[#969696] mt-1.5">
-                                Gunakan kontak yang sama saat mengisi formulir checkout pemesanan.
-                            </span>
-                        </div>
-
-                        <div class="pt-2">
-                            <button type="button"
-                                    class="w-full inline-flex items-center justify-center px-6 py-4 bg-[#1D1D1C] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:ring-offset-2">
-                                Periksa Status Reservasi & Kartu Digital
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
 {{-- 8. SECTION LOKASI & KONTAK --}}
-<section id="kontak" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-20">
+<section id="kontak" class="py-16 sm:py-24 bg-[#F9F7F5] border-b border-[#E0DEDC] scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">

@@ -6,6 +6,15 @@
     <meta name="description" content="Atara Glamping - Pengalaman menginap mewah di dataran tinggi dengan panorama pegunungan dan sewa perlengkapan camping lengkap.">
     <title>@yield('title', 'Atara Glamping | Refined Alpine Sanctuary & Camping Retreat')</title>
 
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <meta name="theme-color" content="#161816">
+
     <!-- Google Fonts: Plus Jakarta Sans (Geometric Sans), Newsreader (Classical Serif), JetBrains Mono (Precision Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

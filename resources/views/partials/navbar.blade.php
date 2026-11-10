@@ -16,7 +16,7 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-[#444444]" aria-label="Navigasi Utama">
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-mono uppercase tracking-wider text-[#444444]" aria-label="Navigasi Utama">
                 <a href="#kamar" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
                     Kamar Glamping
                 </a>
@@ -47,7 +47,7 @@
                 <!-- Mobile Hamburger Button -->
                 <button type="button"
                         id="mobile-menu-btn"
-                        class="md:hidden p-2 text-[#1D1D1C] hover:bg-[#E0DEDC]/50 rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C]"
+                        class="lg:hidden p-2 text-[#1D1D1C] hover:bg-[#E0DEDC]/50 rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C]"
                         aria-controls="mobile-nav"
                         aria-expanded="false"
                         aria-label="Buka menu navigasi">
@@ -63,7 +63,7 @@
     </div>
 
     <!-- Mobile Drawer Panel -->
-    <div id="mobile-nav" class="hidden md:hidden border-b border-[#E0DEDC] bg-[#F9F7F5] px-4 pt-4 pb-6 space-y-3">
+    <div id="mobile-nav" class="hidden lg:hidden border-b border-[#E0DEDC] bg-[#F9F7F5] px-4 pt-4 pb-6 space-y-3">
         <a href="#kamar" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
             Kamar Glamping
         </a>
