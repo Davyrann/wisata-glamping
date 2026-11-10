@@ -4,7 +4,7 @@
             
             <!-- Brand Logo / Wordmark -->
             <a href="{{ route('home') }}" class="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] p-1">
-                <span class="w-2.5 h-2.5 bg-[#1D1D1C] transition-transform group-hover:scale-125"></span>
+                <img src="{{ asset('images/logo/atara-logo-mark.svg') }}" alt="Logo Atara Glamping" class="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105 shrink-0" />
                 <div class="flex flex-col">
                     <span class="font-sans font-extrabold text-base sm:text-lg tracking-[0.2em] text-[#1D1D1C] leading-none uppercase">
                         Atara

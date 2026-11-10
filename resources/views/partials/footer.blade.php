@@ -7,7 +7,7 @@
             <!-- Col 1: Identity & Elevation Statement -->
             <div class="md:col-span-5 space-y-6">
                 <div class="flex items-center gap-3">
-                    <span class="w-3 h-3 bg-white"></span>
+                    <img src="{{ asset('images/logo/atara-logo-mark-dark.svg') }}" alt="Logo Atara Glamping" class="h-9 w-auto object-contain shrink-0" />
                     <span class="font-sans font-bold text-xl tracking-[0.2em] uppercase">Atara Glamping</span>
                 </div>
                 <p class="font-serif font-light text-base text-[#969696] leading-relaxed max-w-sm">
