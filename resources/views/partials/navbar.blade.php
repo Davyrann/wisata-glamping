@@ -9,7 +9,7 @@
                     <span class="font-sans font-extrabold text-base sm:text-lg tracking-[0.2em] text-[#1D1D1C] leading-none uppercase">
                         Atara
                     </span>
-                    <span class="font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-[#969696] uppercase leading-tight mt-0.5">
+                    <span class="hidden sm:block font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-[#969696] uppercase leading-tight mt-0.5">
                         Glamping & Alpine Retreat
                     </span>
                 </div>
