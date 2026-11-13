@@ -64,12 +64,12 @@ test('all referenced images exist in public images directory', function () {
     }
 });
 
-test('login route redirects to or displays 503 service unavailable error page', function () {
+test('login route renders login view with 200 OK', function () {
     $response = get(route('login'));
 
-    $response->assertStatus(503);
-    $response->assertViewIs('errors.auth-unavailable');
-    $response->assertSee('Gerbang Masuk Sedang Disiapkan');
+    $response->assertOk();
+    $response->assertViewIs('auth.login');
+    $response->assertSee('Masuk ke Akun');
     $response->assertSee(route('home'));
 });
 

@@ -12,8 +12,57 @@
     --color-neutral-dark: #444444;
     --color-border-subtle: #E0DEDC;
 
+    /* Atara Design Tokens (DESIGN_dashboard_page.md) */
+    /* Ink (dark chrome) */
+    --color-ink-950: #0F110F;
+    --color-ink-900: #161816;
+    --color-ink-800: #20231F;
+    --color-ink-700: #2E322D;
+
+    /* Paper (light content) */
+    --color-paper: #F6F4EE;
+    --color-surface: #FFFFFF;
+    --color-sunken: #EFECE3;
+    --color-line: #E2DED2;
+    --color-line-strong: #CFCABA;
+
+    /* Text */
+    --color-text: #1B1D1A;
+    --color-text-muted: #5E625A;
+    --color-text-faint: #8A8E84;
+    --color-text-on-ink: #E9E7DF;
+
+    /* Brand */
+    --color-pine-700: #2C4636;
+    --color-pine-600: #365642;
+    --color-pine-100: #DDE7DF;
+    --color-ember-600: #B4622F;
+    --color-ember-100: #F3E2D5;
+
+    /* Status */
+    --color-unpaid-fg: #8A5A00;
+    --color-unpaid-bg: #FBEFD2;
+    --color-confirmed-fg: #1F5C3A;
+    --color-confirmed-bg: #DCEFE2;
+    --color-checkedin-fg: #1D4E6B;
+    --color-checkedin-bg: #DCEAF2;
+    --color-completed-fg: #4A4E46;
+    --color-completed-bg: #E7E5DC;
+    --color-cancelled-fg: #7A2E2A;
+    --color-cancelled-bg: #F4DDDA;
+    --color-refunded-fg: #5B3E7A;
+    --color-refunded-bg: #EADFF2;
+    --color-expired-fg: #6B6F66;
+    --color-expired-bg: #ECEAE2;
+
+    /* Feedback */
+    --color-danger: #A93A33;
+    --color-success: #1F5C3A;
+    --color-focus: #2C4636;
+
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-serif: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+    --font-display: 'Fraunces', Georgia, serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
