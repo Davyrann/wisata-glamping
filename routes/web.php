@@ -31,3 +31,6 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
+
+// Modul Checklist Persiapan Glamping
+require __DIR__.'/preparation.php';
