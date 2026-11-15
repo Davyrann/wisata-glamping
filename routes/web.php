@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PreparationChecklistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 // Rute Publik
 Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/persiapan-glamping', PreparationChecklistController::class)
+    ->name('preparation.checklist');
 
 // Rute Tamu (Guest Only)
 Route::middleware('guest')->group(function (): void {
@@ -31,6 +34,3 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
-
-// Modul Checklist Persiapan Glamping
-require __DIR__.'/preparation.php';
