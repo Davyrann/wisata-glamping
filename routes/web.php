@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PreparationChecklistController;
+use App\Http\Controllers\UserBookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,6 @@ Route::middleware('guest')->group(function (): void {
 // Rute Terautentikasi (Auth Only)
 Route::middleware('auth')->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/bookings', [UserBookingController::class, 'index'])->name('dashboard.bookings');
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
