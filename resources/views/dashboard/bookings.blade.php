@@ -27,7 +27,10 @@
                 <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
                 <span class="hidden lg:block">Pesanan Saya</span>
             </a>
-            @foreach (['Kartu Digital', 'Pembayaran', 'Profil & Keamanan'] as $label)
+            <a href="{{ route('dashboard.cards') }}" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/80 hover:bg-ink-800 rounded-md text-sm" aria-label="Kartu Digital">
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h4v4H7zM14 9h3M14 13h3"/></svg><span class="hidden lg:block">Kartu Digital</span>
+                </a>
+                @foreach (['Pembayaran', 'Profil & Keamanan'] as $label)
                 <span class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/55 text-sm cursor-not-allowed" aria-disabled="true" title="Fitur sedang dikembangkan">
                     <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
                     <span class="hidden lg:block">{{ $label }}</span>
@@ -132,7 +135,7 @@
                             <div class="md:text-right md:min-w-[185px] flex flex-col gap-2 md:items-end">
                                 <span class="inline-flex self-start md:self-auto items-center gap-1.5 px-3 h-6 rounded-full text-xs font-semibold {{ $status[1] }}"><span aria-hidden="true">●</span>{{ $status[0] }}</span>
                                 <p class="font-semibold tabular-nums">Rp {{ number_format((float) $booking->total_amount, 0, ',', '.') }}</p>
-                                <span class="text-xs text-text-muted">Detail & tindakan tersedia pada tahap berikutnya</span>
+                                <a href="{{ route('dashboard.bookings.show', $booking->booking_code) }}" class="inline-flex items-center justify-center rounded-md bg-pine-700 hover:bg-pine-600 text-white text-sm font-semibold min-h-10 px-4">Lihat detail</a>
                             </div>
                         </article>
                     @endforeach
@@ -146,7 +149,7 @@
 <nav class="sm:hidden fixed bottom-0 inset-x-0 bg-ink-900 text-text-on-ink border-t border-white/10 flex justify-around items-center px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] z-30" aria-label="Navigasi akun seluler">
     <a href="{{ route('dashboard') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Ringkasan</a>
     <a href="{{ route('dashboard.bookings') }}" aria-current="page" class="flex-1 text-center text-xs text-white font-semibold py-2 border-t-2 border-ember-600 min-h-11 flex items-center justify-center">Pesanan</a>
-    <span aria-disabled="true" class="flex-1 text-center text-xs text-text-on-ink/50 py-2">Kartu QR</span>
+    <a href="{{ route('dashboard.cards') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Kartu QR</a>
     <span aria-disabled="true" class="flex-1 text-center text-xs text-text-on-ink/50 py-2">Akun</span>
 </nav>
 </body>

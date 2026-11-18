@@ -34,5 +34,7 @@ Route::middleware('guest')->group(function (): void {
 Route::middleware('auth')->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/bookings', [UserBookingController::class, 'index'])->name('dashboard.bookings');
+    Route::get('/dashboard/bookings/{code}', [UserBookingController::class, 'show'])->name('dashboard.bookings.show');
+    Route::get('/dashboard/cards', [UserBookingController::class, 'cards'])->name('dashboard.cards');
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

@@ -100,4 +100,39 @@ class UserBookingController extends Controller
             'filters' => $filters,
         ]);
     }
+
+    /**
+     * Tampilkan detail sebuah reservasi milik user yang sedang login.
+     * Booking orang lain selalu 404, termasuk saat kode valid.
+     */
+    public function show(Request $request, string $code): View
+    {
+        $booking = DB::table('bookings')
+            ->join('rooms', 'rooms.id', '=', 'bookings.room_id')
+            ->where('bookings.user_id', $request->user()->id)
+            ->where('bookings.booking_code', $code)
+            ->select('bookings.*', 'rooms.name as room_name', 'rooms.category as room_category', 'rooms.image_path as room_image')
+            ->first();
+
+        abort_unless($booking, 404);
+
+        return view('dashboard.booking-detail', [
+            'user' => $request->user(),
+            'booking' => $booking,
+        ]);
+    }
+
+    /** Tampilkan hanya kartu milik user dengan status confirmed atau checked_in. */
+    public function cards(Request $request): View
+    {
+        $cards = DB::table('bookings')
+            ->join('rooms', 'rooms.id', '=', 'bookings.room_id')
+            ->where('bookings.user_id', $request->user()->id)
+            ->whereIn('bookings.status', ['confirmed', 'checked_in'])
+            ->select('bookings.*', 'rooms.name as room_name')
+            ->orderBy('bookings.check_in_date')
+            ->get();
+
+        return view('dashboard.cards', ['user' => $request->user(), 'cards' => $cards]);
+    }
 }
