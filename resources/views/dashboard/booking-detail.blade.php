@@ -28,12 +28,9 @@
                 <span class="hidden lg:block">Pesanan Saya</span>
             </a>
             <a href="{{ route('dashboard.cards') }}" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/80 hover:bg-ink-800 rounded-md text-sm" aria-label="Kartu Digital"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="16" height="14" rx="2"/><path d="M7 9h4v4H7zM14 9h3M14 13h3"/></svg><span class="hidden lg:block">Kartu Digital</span></a>
-            @foreach (['Pembayaran', 'Profil & Keamanan'] as $label)
-                <span class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/55 text-sm cursor-not-allowed" aria-disabled="true" title="Fitur sedang dikembangkan">
-                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
-                    <span class="hidden lg:block">{{ $label }}</span>
-                </span>
-            @endforeach
+            <a href="{{ route('dashboard.payments') }}" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/80 hover:bg-ink-800 rounded-md text-sm"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h6"/></svg><span class="hidden lg:block">Pembayaran</span></a>
+            <a href="{{ route('dashboard.profile') }}" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/80 hover:bg-ink-800 rounded-md text-sm"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 16-5 16 0"/></svg><span class="hidden lg:block">Profil & Keamanan</span></a>
+
         </nav>
         <div class="mt-auto border-t border-white/10 px-3 lg:px-5 py-5">
             <div class="hidden lg:block mb-3">
@@ -71,6 +68,8 @@
                 $toDate = \Illuminate\Support\Carbon::parse($booking->check_out_date)->locale('id');
                 $roomSubtotal = (float) $booking->room_price * (int) $booking->duration_nights;
             @endphp
+            @if (session('status'))<div role="status" class="mb-4 p-4 bg-surface rounded-md border border-line text-pine-700">{{ session('status') }}</div>@endif
+            @if ($errors->any())<div role="alert" class="mb-4 p-4 bg-surface rounded-md border border-line text-red-700">{{ $errors->first() }}</div>@endif
             <a href="{{ route('dashboard.bookings') }}" class="text-sm font-semibold text-pine-700 hover:underline">← Kembali ke Pesanan Saya</a>
             <div class="mt-6 mb-7 flex flex-wrap items-center justify-between gap-3">
                 <div class="min-w-0"><p class="text-xs text-text-muted mb-2">Detail reservasi</p><h1 class="font-display text-[clamp(1.8rem,3vw,2.25rem)] font-semibold">{{ $booking->room_name }}</h1><p class="font-mono text-xs text-text-muted mt-2 break-all">{{ $booking->booking_code }}</p></div>
@@ -117,12 +116,29 @@
                     </dl>
                     <p class="text-xs text-text-muted mt-3">Tidak ada deposit jaminan.</p>
                     @if ($booking->status === 'unpaid')
-                        <p class="mt-5 text-sm bg-unpaid-bg text-unpaid-fg p-3 rounded-md">Menunggu pembayaran. Simulasi pembayaran belum tersedia pada tahap ini.</p>
+                        <p class="mt-5 text-sm bg-unpaid-bg text-unpaid-fg p-3 rounded-md">Menunggu pembayaran. Pilih tombol di bawah untuk melanjutkan simulasi.</p>
+                        <a href="{{ route('dashboard.payments') }}" class="mt-3 inline-flex justify-center items-center bg-pine-700 text-white min-h-11 px-4 rounded-md font-semibold text-sm w-full">Buka pembayaran dummy</a>
                     @elseif (in_array($booking->status, ['confirmed','checked_in'], true))
                         <a href="{{ route('dashboard.cards') }}" class="mt-5 inline-flex justify-center items-center bg-pine-700 text-white min-h-11 px-4 rounded-md font-semibold text-sm w-full">Lihat kartu QR</a>
                     @else
                         <a href="{{ route('home') }}#kamar" class="mt-5 inline-flex justify-center items-center bg-pine-700 text-white min-h-11 px-4 rounded-md font-semibold text-sm w-full">Pesan lagi</a>
                     @endif
+                    <section class="border-t border-line mt-5 pt-5" aria-label="Pembatalan reservasi">
+                        <h3 class="font-semibold text-base mb-3">Pengajuan pembatalan</h3>
+                        @if ($cancellation)
+                            <p class="text-sm mb-2">Status terakhir: <strong>{{ ucfirst($cancellation->status) }}</strong></p>
+                            <p class="text-sm text-text-muted">Alasan: {{ $cancellation->reason }}</p>
+                            <p class="text-sm mt-2">Estimasi refund administratif: <strong>{{ $cancellation->refund_percentage }}% (Rp {{ number_format($cancellation->refund_amount,0,',','.') }})</strong></p>
+                            @if ($cancellation->status === 'pending')<p class="text-xs text-text-muted mt-2">Menunggu keputusan Staff. Pesanan belum dibatalkan.</p>@endif
+                        @endif
+                        @if ($booking->status === 'confirmed' && $booking->check_in_date > now('Asia/Jakarta')->toDateString() && (!$cancellation || $cancellation->status !== 'pending'))
+                            <form method="POST" action="{{ route('dashboard.bookings.cancellation', $booking->booking_code) }}" class="space-y-3 mt-4">@csrf
+                                <label class="block text-sm font-semibold">Alasan pembatalan
+                                    <textarea name="reason" minlength="10" maxlength="2000" rows="3" required class="mt-2 w-full border border-line-strong rounded-md px-3 py-2 bg-surface">{{ old('reason') }}</textarea>
+                                </label><button type="submit" class="min-h-11 w-full border border-line-strong rounded-md font-semibold text-sm">Ajukan pembatalan</button>
+                            </form>
+                        @endif
+                    </section>
                     <div class="border-t border-line mt-5 pt-4 text-xs text-text-muted space-y-2"><p>Asuransi pembatalan: refund 100% biaya kamar jika lebih dari 3 hari sebelum check-in, atau 50% jika 3 hari atau kurang. Premi tidak kembali.</p><p>Tanpa asuransi: refund 0%. Pengajuan pembatalan menunggu persetujuan staf.</p></div>
                 </aside>
             </div>
@@ -133,7 +149,7 @@
     <a href="{{ route('dashboard') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Ringkasan</a>
     <a href="{{ route('dashboard.bookings') }}" class="flex-1 text-center text-xs text-white font-semibold py-2 border-t-2 border-ember-600 min-h-11 flex items-center justify-center">Pesanan</a>
     <a href="{{ route('dashboard.cards') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Kartu QR</a>
-    <span aria-disabled="true" class="flex-1 text-center text-xs text-text-on-ink/50 py-2">Akun</span>
+    <a href="{{ route('dashboard.profile') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Akun</a>
 </nav>
 <script>
     document.querySelectorAll('[data-copy-code]').forEach((button) => {

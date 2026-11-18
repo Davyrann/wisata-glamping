@@ -28,12 +28,9 @@
                 <span class="hidden lg:block">Pesanan Saya</span>
             </a>
             <a href="{{ route('dashboard.cards') }}" aria-current="page" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 bg-ink-800 border-l-2 border-ember-600 text-white rounded-r-md font-semibold text-sm" aria-label="Kartu Digital"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="16" height="14" rx="2"/><path d="M7 9h4v4H7zM14 9h3M14 13h3"/></svg><span class="hidden lg:block">Kartu Digital</span></a>
-            @foreach (['Pembayaran', 'Profil & Keamanan'] as $label)
-                <span class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/55 text-sm cursor-not-allowed" aria-disabled="true" title="Fitur sedang dikembangkan">
-                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
-                    <span class="hidden lg:block">{{ $label }}</span>
-                </span>
-            @endforeach
+            <a href="{{ route('dashboard.payments') }}" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/80 hover:bg-ink-800 rounded-md text-sm"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h6"/></svg><span class="hidden lg:block">Pembayaran</span></a>
+            <a href="{{ route('dashboard.profile') }}" class="flex items-center justify-center lg:justify-start min-h-11 gap-3 px-3 text-text-on-ink/80 hover:bg-ink-800 rounded-md text-sm"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 16-5 16 0"/></svg><span class="hidden lg:block">Profil & Keamanan</span></a>
+
         </nav>
         <div class="mt-auto border-t border-white/10 px-3 lg:px-5 py-5">
             <div class="hidden lg:block mb-3">
@@ -80,7 +77,7 @@
     <a href="{{ route('dashboard') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Ringkasan</a>
     <a href="{{ route('dashboard.bookings') }}" class="flex-1 text-center text-xs text-white font-semibold py-2 border-t-2 border-ember-600 min-h-11 flex items-center justify-center">Pesanan</a>
     <a href="{{ route('dashboard.cards') }}" aria-current="page" class="flex-1 text-center text-xs text-white font-semibold py-2 border-t-2 border-ember-600 min-h-11 flex items-center justify-center">Kartu QR</a>
-    <span aria-disabled="true" class="flex-1 text-center text-xs text-text-on-ink/50 py-2">Akun</span>
+    <a href="{{ route('dashboard.profile') }}" class="flex-1 text-center text-xs text-text-on-ink/80 py-2 min-h-11 flex items-center justify-center">Akun</a>
 </nav>
 <script>
     document.querySelectorAll('[data-copy-code]').forEach((button) => {

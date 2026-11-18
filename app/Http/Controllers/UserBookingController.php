@@ -116,9 +116,13 @@ class UserBookingController extends Controller
 
         abort_unless($booking, 404);
 
+        $cancellation = DB::table('cancellation_requests')->where('booking_id', $booking->id)
+            ->where('user_id', $request->user()->id)->orderByDesc('id')->first();
+
         return view('dashboard.booking-detail', [
             'user' => $request->user(),
             'booking' => $booking,
+            'cancellation' => $cancellation,
         ]);
     }
 
