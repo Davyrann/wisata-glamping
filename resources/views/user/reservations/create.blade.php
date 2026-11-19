@@ -96,7 +96,7 @@
         <!-- Kolom 2: Ringkasan Kamar & Rincian Estimasi Biaya (Sidebar) -->
         <aside class="lg:sticky lg:top-24 space-y-5">
             <article class="bg-surface border border-line rounded-[10px] overflow-hidden shadow-sm">
-                <div class="relative aspect-[16/10] bg-sunken">
+                <div class="relative aspect-16/10 bg-sunken">
                     <img src="{{ $image }}" alt="{{ $room->name }}" class="w-full h-full object-cover">
                     <span class="absolute top-3 left-3 bg-ink-900/80 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded">
                         {{ $room->category }}

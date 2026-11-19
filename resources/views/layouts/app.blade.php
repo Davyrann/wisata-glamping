@@ -22,13 +22,13 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[#F9F7F5] text-[#1D1D1C] font-sans antialiased selection:bg-[#1D1D1C] selection:text-white min-h-screen flex flex-col">
+<body class="bg-canvas text-primary font-sans antialiased selection:bg-primary selection:text-white min-h-screen flex flex-col">
 
     <!-- Header Navigation -->
     @include('partials.navbar')
 
     <!-- Main Content -->
-    <main class="flex-grow">
+    <main class="grow">
         @yield('content')
     </main>
 

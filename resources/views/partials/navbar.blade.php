@@ -1,38 +1,38 @@
-<header class="sticky top-0 z-40 bg-[#F9F7F5]/95 backdrop-blur-sm border-b border-[#E0DEDC]">
+<header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-sm border-b border-border-subtle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 sm:h-20">
             
             <!-- Brand Logo / Wordmark -->
-            <a href="{{ route('home') }}" class="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] p-1">
+            <a href="{{ route('home') }}" class="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary p-1">
                 <img src="{{ asset('images/logo/atara-logo-mark.svg') }}" alt="Logo Atara Glamping" class="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105 shrink-0" />
                 <div class="flex flex-col">
-                    <span class="font-sans font-extrabold text-base sm:text-lg tracking-[0.2em] text-[#1D1D1C] leading-none uppercase">
+                    <span class="font-sans font-extrabold text-base sm:text-lg tracking-[0.2em] text-primary leading-none uppercase">
                         Atara
                     </span>
-                    <span class="hidden sm:block font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-[#969696] uppercase leading-tight mt-0.5">
+                    <span class="hidden sm:block font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-muted-stone uppercase leading-tight mt-0.5">
                         Glamping & Alpine Retreat
                     </span>
                 </div>
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-mono uppercase tracking-wider text-[#444444]" aria-label="Navigasi Utama">
-                <a href="#kamar" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-mono uppercase tracking-wider text-neutral-dark" aria-label="Navigasi Utama">
+                <a href="#kamar" class="hover:text-primary transition-colors py-2 border-b border-transparent hover:border-primary">
                     Kamar Glamping
                 </a>
-                <a href="#fasilitas" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                <a href="#fasilitas" class="hover:text-primary transition-colors py-2 border-b border-transparent hover:border-primary">
                     Fasilitas
                 </a>
-                <a href="#panduan" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                <a href="#panduan" class="hover:text-primary transition-colors py-2 border-b border-transparent hover:border-primary">
                     Alur Reservasi
                 </a>
-                <a href="#cek-reservasi" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                <a href="#cek-reservasi" class="hover:text-primary transition-colors py-2 border-b border-transparent hover:border-primary">
                     Cek Booking
                 </a>
-                <a href="#artikel" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                <a href="#artikel" class="hover:text-primary transition-colors py-2 border-b border-transparent hover:border-primary">
                     Edukasi
                 </a>
-                <a href="#kontak" class="hover:text-[#1D1D1C] transition-colors py-2 border-b border-transparent hover:border-[#1D1D1C]">
+                <a href="#kontak" class="hover:text-primary transition-colors py-2 border-b border-transparent hover:border-primary">
                     Kontak
                 </a>
             </nav>
@@ -40,14 +40,14 @@
             <!-- Actions (Login & Mobile Hamburger) -->
             <div class="flex items-center gap-3">
                 <a href="{{ route('login') }}"
-                   class="inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 bg-[#1D1D1C] text-white text-xs font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C] focus:ring-offset-2">
+                   class="inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 bg-primary text-white text-xs font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                     Masuk Akun
                 </a>
 
                 <!-- Mobile Hamburger Button -->
                 <button type="button"
                         id="mobile-menu-btn"
-                        class="lg:hidden p-2 text-[#1D1D1C] hover:bg-[#E0DEDC]/50 rounded-[5px] focus:outline-none focus:ring-2 focus:ring-[#1D1D1C]"
+                        class="lg:hidden p-2 text-primary hover:bg-border-subtle/50 rounded-[5px] focus:outline-none focus:ring-2 focus:ring-primary"
                         aria-controls="mobile-nav"
                         aria-expanded="false"
                         aria-label="Buka menu navigasi">
@@ -63,27 +63,27 @@
     </div>
 
     <!-- Mobile Drawer Panel -->
-    <div id="mobile-nav" class="hidden lg:hidden border-b border-[#E0DEDC] bg-[#F9F7F5] px-4 pt-4 pb-6 space-y-3">
-        <a href="#kamar" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+    <div id="mobile-nav" class="hidden lg:hidden border-b border-border-subtle bg-canvas px-4 pt-4 pb-6 space-y-3">
+        <a href="#kamar" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-primary hover:bg-border-subtle/40">
             Kamar Glamping
         </a>
-        <a href="#fasilitas" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+        <a href="#fasilitas" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-primary hover:bg-border-subtle/40">
             Fasilitas Glamping
         </a>
-        <a href="#panduan" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+        <a href="#panduan" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-primary hover:bg-border-subtle/40">
             Alur Reservasi
         </a>
-        <a href="#cek-reservasi" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+        <a href="#cek-reservasi" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-primary hover:bg-border-subtle/40">
             Cek Status Booking
         </a>
-        <a href="#artikel" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+        <a href="#artikel" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-primary hover:bg-border-subtle/40">
             Edukasi
         </a>
-        <a href="#kontak" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1D1D1C] hover:bg-[#E0DEDC]/40">
+        <a href="#kontak" class="mobile-nav-link block px-3 py-2 text-sm font-mono uppercase tracking-wider text-primary hover:bg-border-subtle/40">
             Lokasi & Kontak
         </a>
-        <div class="pt-2 border-t border-[#E0DEDC]">
-            <a href="{{ route('login') }}" class="block w-full text-center px-4 py-2.5 bg-[#1D1D1C] text-white text-xs font-semibold tracking-wider uppercase hover:bg-black rounded-[5px]">
+        <div class="pt-2 border-t border-border-subtle">
+            <a href="{{ route('login') }}" class="block w-full text-center px-4 py-2.5 bg-primary text-white text-xs font-semibold tracking-wider uppercase hover:bg-black rounded-[5px]">
                 Masuk Akun (Staff & Tamu)
             </a>
         </div>

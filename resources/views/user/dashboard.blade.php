@@ -83,7 +83,7 @@
         <dl class="space-y-4 text-sm">
             <div>
                 <dt class="text-text-muted text-xs mb-0.5">Nama lengkap</dt>
-                <dd class="font-semibold break-words">{{ $user->name }}</dd>
+                <dd class="font-semibold wrap-break-word">{{ $user->name }}</dd>
             </div>
             <div>
                 <dt class="text-text-muted text-xs mb-0.5">Alamat email</dt>

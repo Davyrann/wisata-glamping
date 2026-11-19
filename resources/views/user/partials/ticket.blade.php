@@ -6,7 +6,7 @@
     <div class="p-5 sm:p-6 flex flex-col sm:flex-row gap-5 sm:items-center sm:justify-between">
         <div class="min-w-0">
             <p class="text-xs text-text-on-ink/65 mb-3">ATARA · KARTU MENGINAP</p>
-            <h2 class="font-display text-xl font-semibold break-words">{{ $ticket->room_name }}</h2>
+            <h2 class="font-display text-xl font-semibold wrap-break-word">{{ $ticket->room_name }}</h2>
             <p class="mt-3 text-sm">{{ $ticket->guest_name }}</p>
             <p class="mt-1 text-sm text-text-on-ink/80 tabular-nums">{{ $from }} sampai {{ $to }}</p>
             <p class="mt-2 text-xs text-text-on-ink/70">Check-in 14.00 · Check-out 12.00 WIB</p>

@@ -38,7 +38,7 @@
                 $image = $room->image_path ? asset($room->image_path) : asset('images/Camp_premium.jpg');
             @endphp
             <article class="bg-surface border border-line hover:border-line-strong rounded-[10px] overflow-hidden flex flex-col transition-colors shadow-sm">
-                <div class="relative aspect-[16/10] bg-sunken overflow-hidden">
+                <div class="relative aspect-16/10 bg-sunken overflow-hidden">
                     <img src="{{ $image }}" alt="{{ $room->name }}" class="w-full h-full object-cover">
                     <span class="absolute top-3 left-3 bg-ink-900/80 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded">
                         {{ $room->category }}

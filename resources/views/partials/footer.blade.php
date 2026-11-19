@@ -1,4 +1,4 @@
-<footer class="bg-[#000000] text-white pt-16 sm:pt-24 pb-12 sm:pb-16 border-t border-[#1D1D1C]">
+<footer class="bg-surface-alt text-white pt-16 sm:pt-24 pb-12 sm:pb-16 border-t border-primary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Top Grid -->
@@ -10,10 +10,10 @@
                     <img src="{{ asset('images/logo/atara-logo-mark-dark.svg') }}" alt="Logo Atara Glamping" class="h-9 w-auto object-contain shrink-0" />
                     <span class="font-sans font-bold text-xl tracking-[0.2em] uppercase">Atara Glamping</span>
                 </div>
-                <p class="font-serif font-light text-base text-[#969696] leading-relaxed max-w-sm">
+                <p class="font-serif font-light text-base text-muted-stone leading-relaxed max-w-sm">
                     Kombinasi kemewahan kanvas alpine, kenyamanan fasilitas kabin, dan lanskap pegunungan berkabut pada ketinggian 1.620 mdpl.
                 </p>
-                <div class="font-mono text-xs text-[#969696] space-y-1">
+                <div class="font-mono text-xs text-muted-stone space-y-1">
                     <p>Elevasi : 1.620 mdpl</p>
                     <p>Koordinat : 7.2418° S, 107.6189° E</p>
                     <p>Zona Waktu : Waktu Indonesia Barat (WIB)</p>
@@ -25,7 +25,7 @@
                 <h4 class="font-mono text-xs uppercase tracking-widest text-white border-b border-[#29292A] pb-2">
                     Eksplorasi
                 </h4>
-                <ul class="space-y-2.5 font-serif text-sm text-[#969696]">
+                <ul class="space-y-2.5 font-serif text-sm text-muted-stone">
                     <li><a href="#kamar" class="hover:text-white transition-colors">Tipe Kamar Glamping</a></li>
                     <li><a href="#fasilitas" class="hover:text-white transition-colors">Fasilitas Unggulan</a></li>
                     <li><a href="#panduan" class="hover:text-white transition-colors">Panduan & Alur Reservasi</a></li>
@@ -40,20 +40,20 @@
                 <h4 class="font-mono text-xs uppercase tracking-widest text-white border-b border-[#29292A] pb-2">
                     Jadwal Operasional
                 </h4>
-                <div class="space-y-3 font-sans text-xs text-[#969696]">
-                    <div class="flex justify-between items-center py-1 border-b border-[#1D1D1C]">
+                <div class="space-y-3 font-sans text-xs text-muted-stone">
+                    <div class="flex justify-between items-center py-1 border-b border-primary">
                         <span>Check-in Mandiri</span>
                         <span class="font-mono text-white">14.00 WIB</span>
                     </div>
-                    <div class="flex justify-between items-center py-1 border-b border-[#1D1D1C]">
+                    <div class="flex justify-between items-center py-1 border-b border-primary">
                         <span>Check-out Selesai</span>
                         <span class="font-mono text-white">12.00 WIB</span>
                     </div>
-                    <div class="flex justify-between items-center py-1 border-b border-[#1D1D1C]">
+                    <div class="flex justify-between items-center py-1 border-b border-primary">
                         <span>Simulasi Sandbox QRIS</span>
                         <span class="font-mono text-white">Instan</span>
                     </div>
-                    <div class="flex justify-between items-center py-1 border-b border-[#1D1D1C]">
+                    <div class="flex justify-between items-center py-1 border-b border-primary">
                         <span>Asuransi Pembatalan</span>
                         <span class="font-mono text-white">Opsional (Rp 25.000)</span>
                     </div>
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Bottom Bar -->
-        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#969696]">
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-stone">
             <div>
                 &copy; {{ date('Y') }} Atara Glamping Sanctuary. Hak Cipta Dilindungi.
             </div>

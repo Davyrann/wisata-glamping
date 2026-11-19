@@ -80,7 +80,7 @@
             <article class="bg-surface border border-line hover:border-line-strong rounded-[10px] p-4 sm:p-5 flex flex-col md:flex-row gap-4 md:items-center transition-colors">
                 <img src="{{ $image }}" width="96" height="72" loading="lazy" alt="Foto kamar {{ $booking->room_name }}" class="w-24 h-[72px] object-cover rounded-md bg-sunken shrink-0">
                 <div class="flex-1 min-w-0">
-                    <h2 class="font-display text-lg font-semibold break-words">{{ $booking->room_name }}</h2>
+                    <h2 class="font-display text-lg font-semibold wrap-break-word">{{ $booking->room_name }}</h2>
                     <p class="text-sm text-text-muted mt-1 tabular-nums">{{ $fromDate->translatedFormat('d M Y') }} sampai {{ $toDate->translatedFormat('d M Y') }} ({{ $booking->duration_nights }} malam)</p>
                     <p class="text-xs text-text-muted mt-2 font-mono break-all font-semibold">{{ $booking->booking_code }}</p>
                 </div>

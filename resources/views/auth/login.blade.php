@@ -35,7 +35,7 @@
                  height="1600">
 
             <!-- Gradient Overlay Halus untuk Keterbacaan Teks -->
-            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-900/30 to-ink-950/60 lg:to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-ink-950/80 via-ink-900/30 to-ink-950/60 lg:to-transparent pointer-events-none"></div>
 
             <!-- Tautan Kembali ke Beranda & Logo di Sudut Kiri Atas -->
             <div class="absolute top-4 left-4 lg:top-8 lg:left-8 z-10">

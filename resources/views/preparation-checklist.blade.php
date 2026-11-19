@@ -3,39 +3,39 @@
 @section('title', 'Checklist Persiapan Glamping | Atara Glamping')
 
 @section('content')
-<section class="bg-[#F9F7F5] border-b border-[#E0DEDC] py-14 sm:py-20">
+<section class="bg-canvas border-b border-border-subtle py-14 sm:py-20">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap items-center gap-2 font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#969696] mb-6">
-            <a href="{{ route('home') }}" class="hover:text-[#1D1D1C]">Beranda</a>
+        <div class="flex flex-wrap items-center gap-2 font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] text-muted-stone mb-6">
+            <a href="{{ route('home') }}" class="hover:text-primary">Beranda</a>
             <span>/</span>
-            <span class="text-[#1D1D1C]">Persiapan Menginap</span>
+            <span class="text-primary">Persiapan Menginap</span>
         </div>
 
         <div class="max-w-3xl">
-            <span class="font-mono text-xs uppercase tracking-widest text-[#969696] block mb-3">Panduan Sebelum Berangkat</span>
-            <h1 class="font-sans font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-[#1D1D1C] mb-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-muted-stone block mb-3">Panduan Sebelum Berangkat</span>
+            <h1 class="font-sans font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-primary mb-6">
                 Persiapan kecil, pengalaman alam yang lebih tenang.
             </h1>
-            <p class="font-serif text-base sm:text-xl text-[#444444] leading-relaxed">
+            <p class="font-serif text-base sm:text-xl text-neutral-dark leading-relaxed">
                 Gunakan checklist ini untuk memastikan barang penting sudah disiapkan sebelum perjalanan glamping. Tandai setiap item yang sudah masuk ke tas.
             </p>
         </div>
 
-        <div class="mt-10 border border-[#E0DEDC] bg-white p-5 sm:p-7">
+        <div class="mt-10 border border-border-subtle bg-white p-5 sm:p-7">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4">
                 <div>
-                    <span class="font-mono text-[10px] uppercase tracking-widest text-[#969696] block mb-2">Progres Persiapan</span>
-                    <p class="font-sans font-bold text-2xl text-[#1D1D1C]" id="progress-count" aria-live="polite">0 dari 20 item</p>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-muted-stone block mb-2">Progres Persiapan</span>
+                    <p class="font-sans font-bold text-2xl text-primary" id="progress-count" aria-live="polite">0 dari 20 item</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button type="button" id="reset-checklist" class="px-4 py-2.5 border border-[#E0DEDC] text-[#444444] text-[11px] font-semibold uppercase tracking-wider hover:bg-[#F9F7F5] rounded-[5px]">Reset</button>
-                    <button type="button" id="print-checklist" class="px-4 py-2.5 bg-[#1D1D1C] text-white text-[11px] font-semibold uppercase tracking-wider hover:bg-black rounded-[5px]">Cetak Checklist</button>
+                    <button type="button" id="reset-checklist" class="px-4 py-2.5 border border-border-subtle text-neutral-dark text-[11px] font-semibold uppercase tracking-wider hover:bg-canvas rounded-[5px]">Reset</button>
+                    <button type="button" id="print-checklist" class="px-4 py-2.5 bg-primary text-white text-[11px] font-semibold uppercase tracking-wider hover:bg-black rounded-[5px]">Cetak Checklist</button>
                 </div>
             </div>
-            <div class="h-2 bg-[#E0DEDC] overflow-hidden" role="progressbar" aria-label="Progres checklist" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
-                <div id="progress-fill" class="h-full bg-[#1D1D1C] transition-all duration-300" style="width: 0%"></div>
+            <div class="h-2 bg-border-subtle overflow-hidden" role="progressbar" aria-label="Progres checklist" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+                <div id="progress-fill" class="h-full bg-primary transition-all duration-300" style="width: 0%"></div>
             </div>
-            <p class="font-serif text-xs text-[#969696] mt-3" id="progress-message">Mulai tandai barang yang sudah kamu siapkan.</p>
+            <p class="font-serif text-xs text-muted-stone mt-3" id="progress-message">Mulai tandai barang yang sudah kamu siapkan.</p>
         </div>
     </div>
 </section>
@@ -75,20 +75,20 @@
             @endphp
 
             @foreach ($groups as $group => $items)
-                <article class="border border-[#E0DEDC] bg-[#F9F7F5] p-5 sm:p-6">
-                    <div class="flex items-start justify-between gap-3 border-b border-[#E0DEDC] pb-4 mb-4">
+                <article class="border border-border-subtle bg-canvas p-5 sm:p-6">
+                    <div class="flex items-start justify-between gap-3 border-b border-border-subtle pb-4 mb-4">
                         <div>
-                            <span class="font-mono text-[10px] uppercase tracking-widest text-[#969696]">Kelompok Perlengkapan</span>
-                            <h2 class="font-sans font-bold text-lg text-[#1D1D1C] mt-1">{{ $group }}</h2>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-muted-stone">Kelompok Perlengkapan</span>
+                            <h2 class="font-sans font-bold text-lg text-primary mt-1">{{ $group }}</h2>
                         </div>
-                        <span class="font-mono text-xs text-[#969696]">{{ count($items) }} item</span>
+                        <span class="font-mono text-xs text-muted-stone">{{ count($items) }} item</span>
                     </div>
                     <ul class="space-y-3">
                         @foreach ($items as $item)
                             <li>
                                 <label class="flex items-start gap-3 cursor-pointer group">
-                                    <input type="checkbox" class="checklist-checkbox mt-0.5 h-4 w-4 accent-[#1D1D1C] shrink-0" value="{{ $item }}">
-                                    <span class="font-serif text-sm text-[#444444] leading-relaxed group-hover:text-[#1D1D1C]">{{ $item }}</span>
+                                    <input type="checkbox" class="checklist-checkbox mt-0.5 h-4 w-4 accent-primary shrink-0" value="{{ $item }}">
+                                    <span class="font-serif text-sm text-neutral-dark leading-relaxed group-hover:text-primary">{{ $item }}</span>
                                 </label>
                             </li>
                         @endforeach
@@ -97,19 +97,19 @@
             @endforeach
         </div>
 
-        <div class="mt-10 border-l-2 border-[#1D1D1C] pl-5 py-1">
-            <span class="font-mono text-[10px] uppercase tracking-widest text-[#969696] block mb-2">Catatan Perjalanan</span>
-            <p class="font-serif text-sm text-[#444444] leading-relaxed">
+        <div class="mt-10 border-l-2 border-primary pl-5 py-1">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-muted-stone block mb-2">Catatan Perjalanan</span>
+            <p class="font-serif text-sm text-neutral-dark leading-relaxed">
                 Daftar ini bersifat panduan umum dan dapat disesuaikan dengan kebutuhan pribadi, cuaca, serta durasi perjalanan. Periksa kembali informasi reservasi dan ketentuan menginap sebelum berangkat.
             </p>
         </div>
 
-        <div class="mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-t border-[#E0DEDC] pt-8">
+        <div class="mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-t border-border-subtle pt-8">
             <div>
-                <h2 class="font-sans font-bold text-xl text-[#1D1D1C]">Masih ada yang ingin ditanyakan?</h2>
-                <p class="font-serif text-sm text-[#969696] mt-1">Tim Atara dapat membantu melalui kanal kontak yang tersedia.</p>
+                <h2 class="font-sans font-bold text-xl text-primary">Masih ada yang ingin ditanyakan?</h2>
+                <p class="font-serif text-sm text-muted-stone mt-1">Tim Atara dapat membantu melalui kanal kontak yang tersedia.</p>
             </div>
-            <a href="{{ route('home') }}#kontak" class="inline-flex items-center justify-center px-6 py-3.5 bg-[#1D1D1C] text-white text-xs font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px]">Lihat Informasi Kontak</a>
+            <a href="{{ route('home') }}#kontak" class="inline-flex items-center justify-center px-6 py-3.5 bg-primary text-white text-xs font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px]">Lihat Informasi Kontak</a>
         </div>
     </div>
 </section>
