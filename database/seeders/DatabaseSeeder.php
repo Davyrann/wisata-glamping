@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -45,5 +46,43 @@ class DatabaseSeeder extends Seeder
                 'phone' => '081234567892',
             ]
         );
+
+        // Required Default Glamping Rooms from PRD
+        $rooms = [
+            [
+                'name' => 'Safari Luxury Suite',
+                'category' => 'Deluxe Safari Tent',
+                'description' => 'Tenda safari premium dengan deck kayu jati, kasur king-size, kamar mandi dalam berpemanas air, dan panorama lereng pinus langsung.',
+                'price_per_night' => 850000,
+                'total_stock' => 4,
+                'image_path' => 'images/Camp_with_chair.jpg',
+            ],
+            [
+                'name' => 'Forest Glamping Dome',
+                'category' => 'Family Glamping Dome',
+                'description' => 'Dome geodesic berinsulasi ganda dengan dinding kaca lengkung 180 derajat untuk menatap langit malam dan pegunungan.',
+                'price_per_night' => 1250000,
+                'total_stock' => 3,
+                'image_path' => 'images/Camp_premium.jpg',
+            ],
+            [
+                'name' => 'Alpine Wooden Cabin',
+                'category' => 'Romantic Cabin Forest',
+                'description' => 'Kabin kayu cedar dengan perapian bioetanol, balkon pribadi di atas kanopi pepohonan, serta bak rendam air hangat luar ruangan.',
+                'price_per_night' => 1650000,
+                'total_stock' => 2,
+                'image_path' => 'images/Camp_cabin.jpg',
+            ],
+        ];
+
+        foreach ($rooms as $room) {
+            DB::table('rooms')->updateOrInsert(
+                ['name' => $room['name']],
+                array_merge($room, [
+                    'updated_at' => now(),
+                    'created_at' => now(),
+                ])
+            );
+        }
     }
 }

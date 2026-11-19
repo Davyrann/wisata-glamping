@@ -18,5 +18,5 @@
             @endfor
         @endfor
     </svg>
-    <p class="mt-1 text-center text-[10px] font-semibold text-gray-700">QR dummy — gunakan kode</p>
+    <p class="mt-1 text-center text-[10px] font-semibold text-gray-700">QR dummy (gunakan kode)</p>
 </div>

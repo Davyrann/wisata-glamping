@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Response;
 
 /**
  * Class LandingController
  *
- * Menangani tampilan halaman utama (landing page) serta halaman transisi
- * untuk modul autentikasi yang masih dalam tahap persiapan.
+ * Menangani tampilan halaman utama (landing page) publik Atara Glamping.
  */
 class LandingController extends Controller
 {
@@ -24,13 +22,5 @@ class LandingController extends Controller
     public function index(): View
     {
         return view('landing');
-    }
-
-    /**
-     * Menampilkan halaman error layanan untuk modul autentikasi yang sedang disiapkan.
-     */
-    public function authUnavailable(): Response
-    {
-        return response()->view('errors.auth-unavailable', [], 503);
     }
 }

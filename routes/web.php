@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PreparationChecklistController;
-use App\Http\Controllers\UserBookingController;
-use App\Http\Controllers\UserPaymentController;
-use App\Http\Controllers\UserCancellationController;
-use App\Http\Controllers\UserAccountController;
+use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
+use App\Http\Controllers\User\AccountController;
+use App\Http\Controllers\User\BookingController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\User\RoomController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Rute aplikasi Atara Glamping: beranda publik, alur autentikasi (login/logout),
-| serta dashboard ringkasan akun pengguna.
+| serta dashboard ringkasan akun terpisah berdasarkan role (User, Staff, Admin).
 |
 */
 
@@ -35,16 +37,47 @@ Route::middleware('guest')->group(function (): void {
 
 // Rute Terautentikasi (Auth Only)
 Route::middleware('auth')->group(function (): void {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/bookings', [UserBookingController::class, 'index'])->name('dashboard.bookings');
-    Route::get('/dashboard/bookings/{code}', [UserBookingController::class, 'show'])->name('dashboard.bookings.show');
-    Route::get('/dashboard/cards', [UserBookingController::class, 'cards'])->name('dashboard.cards');
-    Route::get('/dashboard/payments', [UserPaymentController::class, 'index'])->name('dashboard.payments');
-    Route::post('/dashboard/bookings/{code}/pay', [UserPaymentController::class, 'pay'])->name('dashboard.bookings.pay');
-    Route::post('/dashboard/bookings/{code}/discard', [UserPaymentController::class, 'discard'])->name('dashboard.bookings.discard');
-    Route::post('/dashboard/bookings/{code}/cancellation', [UserCancellationController::class, 'store'])->name('dashboard.bookings.cancellation');
-    Route::get('/dashboard/profile', [UserAccountController::class, 'edit'])->name('dashboard.profile');
-    Route::patch('/dashboard/profile', [UserAccountController::class, 'update'])->name('dashboard.profile.update');
-    Route::patch('/dashboard/profile/password', [UserAccountController::class, 'password'])->name('dashboard.profile.password');
+    // Role Dispatcher untuk rute /dashboard
+    Route::get('/dashboard', function (Request $request) {
+        $role = $request->user()?->role;
+
+        if ($role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        if ($role === 'staff') {
+            return redirect()->route('staff.dashboard');
+        }
+
+        return app(UserDashboardController::class)($request);
+    })->name('dashboard');
+
+    // Rute Khusus Peran Tamu (User Role)
+    Route::middleware('role:user')->prefix('dashboard')->group(function (): void {
+        Route::get('/rooms', RoomController::class)->name('dashboard.rooms');
+        Route::get('/rooms/{room}/book', [BookingController::class, 'create'])->name('dashboard.rooms.book');
+        Route::post('/rooms/{room}/book', [BookingController::class, 'store'])->name('dashboard.rooms.reserve');
+        Route::get('/bookings', [BookingController::class, 'index'])->name('dashboard.bookings');
+        Route::get('/bookings/{code}', [BookingController::class, 'show'])->name('dashboard.bookings.show');
+        Route::get('/cards', [BookingController::class, 'cards'])->name('dashboard.cards');
+        Route::get('/payments', [BookingController::class, 'payments'])->name('dashboard.payments');
+        Route::post('/bookings/{code}/pay', [BookingController::class, 'pay'])->name('dashboard.bookings.pay');
+        Route::post('/bookings/{code}/discard', [BookingController::class, 'discard'])->name('dashboard.bookings.discard');
+        Route::post('/bookings/{code}/cancellation', [BookingController::class, 'cancellation'])->name('dashboard.bookings.cancellation');
+        Route::get('/profile', [AccountController::class, 'edit'])->name('dashboard.profile');
+        Route::patch('/profile', [AccountController::class, 'update'])->name('dashboard.profile.update');
+        Route::patch('/profile/password', [AccountController::class, 'password'])->name('dashboard.profile.password');
+    });
+
+    // Rute Khusus Peran Staf Operasional (Staff Role)
+    Route::middleware('role:staff')->prefix('staff')->group(function (): void {
+        Route::get('/dashboard', StaffDashboardController::class)->name('staff.dashboard');
+    });
+
+    // Rute Khusus Administrator Sistem (Admin Role)
+    Route::middleware('role:admin')->prefix('admin')->group(function (): void {
+        Route::get('/dashboard', AdminDashboardController::class)->name('admin.dashboard');
+    });
+
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

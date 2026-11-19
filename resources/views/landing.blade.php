@@ -5,30 +5,30 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="relative bg-[#F9F7F5] pt-6 sm:pt-10 pb-16 sm:pb-24 border-b border-[#E0DEDC]">
+<section class="relative bg-canvas pt-6 sm:pt-10 pb-16 sm:pb-24 border-b border-border-subtle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Metadata Header Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#E0DEDC] pb-4 mb-8 sm:mb-10 font-mono text-xs text-[#444444] uppercase tracking-widest">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-border-subtle pb-4 mb-8 sm:mb-10 font-mono text-xs text-neutral-dark uppercase tracking-widest">
             <div class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-[#1D1D1C]"></span>
+                <span class="w-2 h-2 bg-primary"></span>
                 <span>Elevasi 1.620 mdpl</span>
             </div>
-            <div class="hidden sm:flex items-center gap-6 text-[#969696]">
+            <div class="hidden sm:flex items-center gap-6 text-muted-stone">
                 <span>Suhu 14°C - 20°C</span>
                 <span>Jalur Puncak Dingin KM 18</span>
             </div>
-            <div class="text-[#1D1D1C] font-semibold">
+            <div class="text-primary font-semibold">
                 Kawasan Hutan Pinus Asri
             </div>
         </div>
 
         <!-- Hero Headline & Introduction -->
         <div class="max-w-4xl mb-8 sm:mb-12">
-            <h1 class="text-3xl sm:text-5xl lg:text-7xl font-sans font-bold text-[#1D1D1C] tracking-tight leading-[1.05] mb-6">
+            <h1 class="text-3xl sm:text-5xl lg:text-7xl font-sans font-bold text-primary tracking-tight leading-[1.05] mb-6">
                 Kenyamanan Kabin Mewah di Pelukan Rimba Pegunungan
             </h1>
-            <p class="font-serif font-light text-base sm:text-xl lg:text-2xl text-[#444444] leading-relaxed max-w-3xl">
+            <p class="font-serif font-light text-base sm:text-xl lg:text-2xl text-neutral-dark leading-relaxed max-w-3xl">
                 Atara Glamping menyatukan keteduhan hutan pinus alami, perlindungan kanvas berkualitas tinggi, dan fasilitas kabin yang hangat. Sebuah jeda tenang tanpa meninggalkan kenyamanan beristirahat.
             </p>
         </div>
