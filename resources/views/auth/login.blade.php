@@ -189,8 +189,12 @@
                     </button>
                 </form>
 
-                <!-- Tautan Sekunder: Cek Reservasi Tanpa Login (Sesuai DESIGN_dashboard_page.md §7.7) -->
+                <!-- Tautan Sekunder: Registrasi & Cek Reservasi Tanpa Login -->
                 <div class="mt-5 pt-4 border-t border-line text-center space-y-2">
+                    <p class="text-xs text-text-muted">
+                        Belum punya akun?
+                        <a href="{{ route('register') }}" class="font-semibold text-pine-700 hover:underline underline-offset-4">Daftar akun tamu</a>
+                    </p>
                     <p class="text-xs text-text-muted">
                         Ingin memeriksa pesanan secara instan?
                     </p>

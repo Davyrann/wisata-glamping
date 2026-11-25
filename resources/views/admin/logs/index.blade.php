@@ -34,8 +34,8 @@
         <p class="mt-3 text-xs text-danger font-medium" role="alert">Filter tidak valid. Periksa kembali rentang tanggal.</p>
     @endif
     <div class="flex flex-wrap gap-3 items-center mt-4 pt-3 border-t border-line">
-        <button type="submit" class="bg-pine-700 hover:bg-pine-600 text-white text-xs font-semibold min-h-10 px-4 rounded-md">Terapkan filter</button>
-        <a href="{{ route('admin.logs') }}" class="text-pine-700 underline underline-offset-4 text-xs font-semibold min-h-10 inline-flex items-center">Atur ulang</a>
+        <button type="submit" class="bg-pine-700 hover:bg-pine-600 text-white text-xs font-semibold min-h-11 sm:min-h-10 px-4 rounded-md">Terapkan filter</button>
+        <a href="{{ route('admin.logs') }}" class="text-pine-700 underline underline-offset-4 text-xs font-semibold min-h-11 sm:min-h-10 inline-flex items-center">Atur ulang</a>
     </div>
 </form>
 
@@ -45,7 +45,21 @@
         <p class="mt-2 text-sm text-text-muted">Belum ada aktivitas yang cocok dengan filter ini.</p>
     </section>
 @else
-    <section class="bg-surface border border-line rounded-[10px] overflow-hidden">
+    <div class="md:hidden space-y-3">
+        @foreach ($logs as $log)
+            <article class="bg-surface border border-line rounded-[10px] p-4 space-y-2">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="inline-block px-2 py-0.5 rounded bg-sunken font-semibold text-[11px]">{{ $log->action }}</span>
+                    <span class="text-[11px] text-text-muted tabular-nums">{{ $log->created_at?->timezone('Asia/Jakarta')->format('d/m/Y H:i') }}</span>
+                </div>
+                <p class="text-xs font-medium">{{ $log->user?->name ?? 'Sistem' }} <span class="text-text-muted font-normal">({{ $log->user?->role ?? '-' }})</span></p>
+                <p class="text-xs text-text-muted wrap-break-word">{{ $log->description }}</p>
+                <p class="font-mono text-[11px] text-text-muted">IP: {{ $log->ip_address ?? '-' }}</p>
+            </article>
+        @endforeach
+    </div>
+
+    <section class="hidden md:block bg-surface border border-line rounded-[10px] overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs border-collapse">
                 <thead>

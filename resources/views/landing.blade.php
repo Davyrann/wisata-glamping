@@ -637,7 +637,7 @@
                         </span>
                     </div>
 
-                    <form action="#" method="GET" class="space-y-5">
+                    <form action="{{ route('booking.check') }}" method="GET" class="space-y-5">
                         <div>
                             <label for="booking_code" class="block font-mono text-xs uppercase tracking-wider text-primary font-semibold mb-2">
                                 Kode Booking Unik
@@ -645,6 +645,7 @@
                             <input type="text"
                                    id="booking_code"
                                    name="booking_code"
+                                   required
                                    placeholder="Contoh: GLAMP-2026-ABCD"
                                    class="w-full px-4 py-3 border border-border-subtle bg-canvas text-sm font-mono text-primary placeholder-muted-stone focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all rounded-[3px]">
                             <span class="block font-serif text-[11px] text-muted-stone mt-1.5">
@@ -653,12 +654,13 @@
                         </div>
 
                         <div>
-                            <label for="contact_lookup" class="block font-mono text-xs uppercase tracking-wider text-primary font-semibold mb-2">
+                            <label for="contact" class="block font-mono text-xs uppercase tracking-wider text-primary font-semibold mb-2">
                                 Email atau Nomor Telepon
                             </label>
                             <input type="text"
-                                   id="contact_lookup"
-                                   name="contact_lookup"
+                                   id="contact"
+                                   name="contact"
+                                   required
                                    placeholder="Contoh: tamu@domain.test / 081234567890"
                                    class="w-full px-4 py-3 border border-border-subtle bg-canvas text-sm font-mono text-primary placeholder-muted-stone focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all rounded-[3px]">
                             <span class="block font-serif text-[11px] text-muted-stone mt-1.5">
@@ -667,7 +669,7 @@
                         </div>
 
                         <div class="pt-2">
-                            <button type="button"
+                            <button type="submit"
                                     class="w-full inline-flex items-center justify-center px-6 py-4 bg-primary text-white text-xs sm:text-sm font-semibold tracking-wider uppercase hover:bg-black transition-colors rounded-[5px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                                 Periksa Status Reservasi & Kartu Digital
                             </button>
@@ -702,97 +704,40 @@
 
         <!-- 3 Articles Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Article 1 -->
-            <article class="flex flex-col border border-border-subtle bg-canvas group">
-                <div class="relative overflow-hidden aspect-16/10 bg-black">
-                    <img src="{{ asset('images/Camp_premium.jpg') }}"
-                         alt="Pemandangan pegunungan dan persiapan tenda"
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                         loading="lazy">
-                    <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-mono uppercase px-2 py-0.5">
-                        Panduan Pemula
+            @forelse ($articles ?? collect() as $article)
+                <article class="flex flex-col border border-border-subtle bg-canvas group">
+                    <div class="relative overflow-hidden aspect-16/10 bg-black">
+                        <img src="{{ asset($article->thumbnail_path ?: 'images/Camp_premium.jpg') }}"
+                             alt="{{ $article->title }}"
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                             loading="lazy">
                     </div>
-                </div>
-                <div class="p-6 grow flex flex-col justify-between space-y-4">
-                    <div>
-                        <div class="font-mono text-[11px] text-muted-stone mb-2">
-                            4 Menit Baca : Outdoor Guide
+                    <div class="p-6 grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold font-sans text-primary leading-snug mb-3">
+                                @if ($article->slug)
+                                    <a href="{{ route('articles.show', $article->slug) }}" class="hover:underline underline-offset-4">{{ $article->title }}</a>
+                                @else
+                                    {{ $article->title }}
+                                @endif
+                            </h3>
+                            <p class="font-serif text-xs sm:text-sm text-neutral-dark leading-relaxed line-clamp-3">
+                                {{ $article->content }}
+                            </p>
                         </div>
-                        <h3 class="text-lg font-bold font-sans text-primary leading-snug mb-3">
-                            Tips Memilih Tenda untuk Pemula di Cuaca Dingin Pegunungan
-                        </h3>
-                        <p class="font-serif text-xs sm:text-sm text-neutral-dark leading-relaxed">
-                            Mengenal ketebalan kain kanvas, pengaturan ventilasi sirkulasi udara guna mencegah kondensasi kabut, serta trik mengunci pasak di lereng perbukitan berangin.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-primary">
-                        <span>Oleh Tim Konservasi Atara</span>
-                        <span class="underline">Baca Selengkapnya</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 2 -->
-            <article class="flex flex-col border border-border-subtle bg-canvas group">
-                <div class="relative overflow-hidden aspect-16/10 bg-black">
-                    <img src="{{ asset('images/Camp_from_above.jpg') }}"
-                         alt="Aktivitas memanggang marshmallow di dekat tenda"
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                         loading="lazy">
-                    <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-mono uppercase px-2 py-0.5">
-                        Persiapan Keluarga
-                    </div>
-                </div>
-                <div class="p-6 grow flex flex-col justify-between space-y-4">
-                    <div>
-                        <div class="font-mono text-[11px] text-muted-stone mb-2">
-                            5 Menit Baca : Checklist
+                        <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-primary">
+                            <span>Panduan Atara</span>
+                            @if ($article->slug)
+                                <a href="{{ route('articles.show', $article->slug) }}" class="underline">Baca Selengkapnya</a>
+                            @else
+                                <span class="text-muted-stone">Panduan Singkat</span>
+                            @endif
                         </div>
-                        <h3 class="text-lg font-bold font-sans text-primary leading-snug mb-3">
-                            Checklist Alat Camping Esensial untuk Glamping Nyaman Bersama Keluarga
-                        </h3>
-                        <p class="font-serif text-xs sm:text-sm text-neutral-dark leading-relaxed">
-                            Panduan barang bawaan krusial mulai dari pakaian hangat berlapis, lampu lentera portabel, perlengkapan seduh minuman hangat, hingga kotak pertolongan pertama.
-                        </p>
                     </div>
-                    <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-primary">
-                        <span>Oleh Staf Lapangan Atara</span>
-                        <span class="underline">Baca Selengkapnya</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 3 -->
-            <article class="flex flex-col border border-border-subtle bg-canvas group">
-                <div class="relative overflow-hidden aspect-16/10 bg-black">
-                    <img src="{{ asset('images/High_standart_camp.jpg') }}"
-                         alt="Api unggun senja di perkemahan glamping"
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                         loading="lazy">
-                    <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-mono uppercase px-2 py-0.5">
-                        Gaya Hidup & Filosofi
-                    </div>
-                </div>
-                <div class="p-6 grow flex flex-col justify-between space-y-4">
-                    <div>
-                        <div class="font-mono text-[11px] text-muted-stone mb-2">
-                            6 Menit Baca : Refleksi
-                        </div>
-                        <h3 class="text-lg font-bold font-sans text-primary leading-snug mb-3">
-                            Glamping Minimalis: Mendekap Keheningan Alam Tanpa Mengorbankan Kenyamanan
-                        </h3>
-                        <p class="font-serif text-xs sm:text-sm text-neutral-dark leading-relaxed">
-                            Bagaimana perpaduan arsitektur ramah lingkungan dan pelayanan hangat memungkinkan manusia modern melepaskan lelah batin dan menyatu dengan semesta.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-primary">
-                        <span>Oleh Kurator Atara Glamping</span>
-                        <span class="underline">Baca Selengkapnya</span>
-                    </div>
-                </div>
-            </article>
-
+                </article>
+            @empty
+                <p class="col-span-full text-sm text-muted-stone">Artikel edukasi sedang disiapkan.</p>
+            @endforelse
         </div>
 
     </div>

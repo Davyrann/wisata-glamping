@@ -13,34 +13,34 @@
         <h1 class="font-display text-[clamp(1.8rem,3vw,2.5rem)] font-semibold leading-tight">Panel Administrator</h1>
         <p class="mt-2 text-text-muted text-sm sm:text-base">Kelola akun, inventori kamar, dan pantau log aktivitas staf operasional glamping.</p>
     </div>
-    <a href="{{ route('admin.users.create') }}" class="inline-flex items-center justify-center rounded-md bg-pine-700 hover:bg-pine-600 text-white text-sm font-semibold px-4 min-h-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine-700">Tambah akun</a>
+    <a href="{{ route('admin.users.create') }}" class="inline-flex items-center justify-center w-full sm:w-auto rounded-md bg-pine-700 hover:bg-pine-600 text-white text-sm font-semibold px-4 min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine-700">Tambah akun</a>
 </div>
 
 <!-- Metrik Administrator -->
-<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-    <div class="bg-surface border border-line rounded-[10px] p-5">
-        <p class="text-xs text-text-muted font-medium mb-1">TOTAL PENGGUNA TAMU</p>
-        <p class="font-display text-2xl font-semibold tabular-nums">{{ $metrics['total_users'] }}</p>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-8">
+    <div class="bg-surface border border-line rounded-[10px] p-4 sm:p-5">
+        <p class="text-[11px] sm:text-xs text-text-muted font-medium mb-1">TOTAL PENGGUNA TAMU</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold tabular-nums">{{ $metrics['total_users'] }}</p>
     </div>
-    <div class="bg-surface border border-line rounded-[10px] p-5">
-        <p class="text-xs text-text-muted font-medium mb-1">TOTAL STAF</p>
-        <p class="font-display text-2xl font-semibold tabular-nums">{{ $metrics['total_staff'] }}</p>
+    <div class="bg-surface border border-line rounded-[10px] p-4 sm:p-5">
+        <p class="text-[11px] sm:text-xs text-text-muted font-medium mb-1">TOTAL STAF</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold tabular-nums">{{ $metrics['total_staff'] }}</p>
     </div>
-    <div class="bg-surface border border-line rounded-[10px] p-5">
-        <p class="text-xs text-text-muted font-medium mb-1">TOTAL TIPE KAMAR</p>
-        <p class="font-display text-2xl font-semibold tabular-nums">{{ $metrics['total_rooms'] }}</p>
+    <div class="bg-surface border border-line rounded-[10px] p-4 sm:p-5">
+        <p class="text-[11px] sm:text-xs text-text-muted font-medium mb-1">TOTAL TIPE KAMAR</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold tabular-nums">{{ $metrics['total_rooms'] }}</p>
     </div>
-    <div class="bg-surface border border-line rounded-[10px] p-5">
-        <p class="text-xs text-text-muted font-medium mb-1">TOTAL RESERVASI</p>
-        <p class="font-display text-2xl font-semibold tabular-nums">{{ $metrics['total_bookings'] }}</p>
+    <div class="bg-surface border border-line rounded-[10px] p-4 sm:p-5">
+        <p class="text-[11px] sm:text-xs text-text-muted font-medium mb-1">TOTAL RESERVASI</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold tabular-nums">{{ $metrics['total_bookings'] }}</p>
     </div>
-    <div class="bg-surface border border-line rounded-[10px] p-5">
-        <p class="text-xs text-text-muted font-medium mb-1">PENDAPATAN (DUMMY)</p>
-        <p class="font-display text-2xl font-semibold tabular-nums">Rp {{ number_format($metrics['revenue'], 0, ',', '.') }}</p>
+    <div class="col-span-2 sm:col-span-1 bg-surface border border-line rounded-[10px] p-4 sm:p-5">
+        <p class="text-[11px] sm:text-xs text-text-muted font-medium mb-1">PENDAPATAN (DUMMY)</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold tabular-nums">Rp {{ number_format($metrics['revenue'], 0, ',', '.') }}</p>
     </div>
-    <div class="bg-surface border border-line rounded-[10px] p-5">
-        <p class="text-xs text-text-muted font-medium mb-1">PEMBATALAN PENDING</p>
-        <p class="font-display text-2xl font-semibold tabular-nums {{ $metrics['pending_cancellations'] > 0 ? 'text-unpaid-fg' : '' }}">{{ $metrics['pending_cancellations'] }}</p>
+    <div class="col-span-2 sm:col-span-1 bg-surface border border-line rounded-[10px] p-4 sm:p-5">
+        <p class="text-[11px] sm:text-xs text-text-muted font-medium mb-1">PEMBATALAN PENDING</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold tabular-nums {{ $metrics['pending_cancellations'] > 0 ? 'text-unpaid-fg' : '' }}">{{ $metrics['pending_cancellations'] }}</p>
     </div>
 </div>
 
@@ -76,7 +76,7 @@
                 <h2 class="font-semibold text-lg">Catatan audit terbaru</h2>
                 <p class="text-xs text-text-muted">Rekam jejak tindakan staf dan administrator sistem.</p>
             </div>
-            <a href="{{ route('admin.logs') }}" class="text-pine-700 underline underline-offset-4 text-xs font-semibold whitespace-nowrap">Lihat semua</a>
+            <a href="{{ route('admin.logs') }}" class="inline-flex items-center min-h-11 sm:min-h-0 text-pine-700 underline underline-offset-4 text-xs font-semibold whitespace-nowrap">Lihat semua</a>
         </div>
 
         @if ($recentLogs->isEmpty())
@@ -84,7 +84,20 @@
                 Belum ada log aktivitas tercatat.
             </div>
         @else
-            <div class="overflow-x-auto">
+            <ul class="md:hidden divide-y divide-line">
+                @foreach ($recentLogs as $log)
+                    <li class="py-3 first:pt-0 last:pb-0 space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="inline-block px-2 py-0.5 rounded bg-sunken font-semibold text-[11px]">{{ $log->action }}</span>
+                            <span class="text-[11px] text-text-muted tabular-nums">{{ $log->created_at->timezone('Asia/Jakarta')->format('d/m/Y H:i') }}</span>
+                        </div>
+                        <p class="text-xs font-medium">{{ $log->user?->name ?? 'Sistem' }} <span class="text-text-muted font-normal">({{ $log->user?->role ?? '-' }})</span></p>
+                        <p class="text-xs text-text-muted wrap-break-word">{{ $log->description }}</p>
+                    </li>
+                @endforeach
+            </ul>
+
+            <div class="hidden md:block overflow-x-auto">
                 <table class="w-full text-left text-xs border-collapse">
                     <thead>
                         <tr class="border-b border-line text-text-muted uppercase text-[11px]">

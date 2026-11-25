@@ -102,6 +102,37 @@
     </section>
 </div>
 
+<div class="mt-5 bg-surface border border-line rounded-[10px] p-5 sm:p-7" aria-labelledby="chart-title">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+        <div>
+            <p class="text-xs tracking-wider text-text-muted mb-1">RIWAYAT SEWA & PENGELUARAN</p>
+            <h2 id="chart-title" class="font-semibold text-lg">Pengeluaran 6 Bulan Terakhir</h2>
+        </div>
+        <span class="text-xs text-text-muted tabular-nums">
+            Total: Rp {{ number_format((float) collect($monthlySpending)->sum('amount'), 0, ',', '.') }}
+        </span>
+    </div>
+
+    <div class="grid grid-cols-6 gap-2 sm:gap-4 items-end h-40 pt-4 border-b border-line pb-2">
+        @foreach ($monthlySpending as $bar)
+            @php
+                $heightPercent = $bar['amount'] > 0 ? max(10, (int) round(($bar['amount'] / $maxMonthlySpend) * 100)) : 4;
+            @endphp
+            <div class="flex flex-col items-center justify-end h-full gap-1.5 min-w-0">
+                <span class="text-[10px] text-text-muted tabular-nums truncate max-w-full" title="Rp {{ number_format($bar['amount'], 0, ',', '.') }}">
+                    {{ $bar['count'] > 0 ? $bar['count'].'x' : '-' }}
+                </span>
+                <div class="w-full max-w-10 rounded-t bg-pine-700/90 transition-all" style="height: {{ $heightPercent }}%" aria-label="{{ $bar['label'] }}: Rp {{ number_format($bar['amount'], 0, ',', '.') }}"></div>
+            </div>
+        @endforeach
+    </div>
+    <div class="grid grid-cols-6 gap-2 sm:gap-4 pt-2 text-center">
+        @foreach ($monthlySpending as $bar)
+            <span class="text-[11px] text-text-muted truncate">{{ $bar['label'] }}</span>
+        @endforeach
+    </div>
+</div>
+
 <div class="mt-5 border border-line rounded-[10px] bg-sunken px-5 py-4 text-xs sm:text-sm text-text-muted">
     <strong class="text-text font-semibold">Informasi operasional menginap:</strong> Check-in mulai pukul 14.00 WIB dan check-out maksimal pukul 12.00 WIB. Asuransi pembatalan (Rp 25.000) bersifat opsional saat reservasi.
 </div>

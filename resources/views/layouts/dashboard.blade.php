@@ -33,6 +33,11 @@
                         <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
                         <span class="hidden lg:block">Panel Admin</span>
                     </a>
+                    <a href="{{ route('staff.dashboard') }}"
+                       class="flex items-center justify-center lg:justify-start gap-3 min-h-11 px-3 rounded-md text-sm {{ request()->routeIs('staff.*') ? 'bg-ink-800 border-l-2 border-ember-600 text-white font-semibold' : 'text-text-on-ink/80 hover:bg-ink-800' }}">
+                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+                        <span class="hidden lg:block">Operasional Staff</span>
+                    </a>
                     <a href="{{ route('admin.users.index') }}"
                        class="flex items-center justify-center lg:justify-start gap-3 min-h-11 px-3 rounded-md text-sm {{ request()->routeIs('admin.users.*') ? 'bg-ink-800 border-l-2 border-ember-600 text-white font-semibold' : 'text-text-on-ink/80 hover:bg-ink-800' }}">
                         <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-5 14-5 14 0M17 4a4 4 0 010 8M22 21c0-3-2-4.5-4-5"/></svg>
@@ -92,7 +97,7 @@
 
         <!-- Main Content Area -->
         <div class="flex-1 min-w-0">
-            <header class="sticky top-0 z-20 h-20 bg-paper/95 backdrop-blur-sm border-b border-line flex items-center justify-between gap-3 px-5 sm:px-7 lg:px-9">
+            <header class="sticky top-0 z-20 h-16 sm:h-20 bg-paper/95 backdrop-blur-sm border-b border-line flex items-center justify-between gap-3 px-4 sm:px-7 lg:px-9">
                 <div class="min-w-0">
                     <p class="text-xs text-text-muted">{{ $subtitle ?? 'Area Tamu Atara' }}</p>
                     <p class="text-sm font-semibold truncate">Halo, {{ auth()->user()?->name }}</p>
@@ -100,11 +105,16 @@
                 <div class="flex items-center gap-2">
                     @if (auth()->user()?->role === 'user')
                         <a href="{{ route('dashboard.rooms') }}" class="inline-flex items-center justify-center rounded-md bg-pine-700 hover:bg-pine-600 text-white text-xs sm:text-sm font-semibold px-3 sm:px-4 min-h-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine-700">Katalog Kamar</a>
+                    @else
+                        <form method="POST" action="{{ route('logout') }}" class="sm:hidden">
+                            @csrf
+                            <button type="submit" class="inline-flex items-center justify-center rounded-md border border-line-strong bg-surface hover:bg-sunken text-text text-xs font-semibold px-3 min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine-700" aria-label="Keluar dari akun">Keluar</button>
+                        </form>
                     @endif
                 </div>
             </header>
 
-            <main class="max-w-280 mx-auto px-5 sm:px-7 lg:px-9 py-8 pb-28 sm:pb-10">
+            <main class="max-w-280 mx-auto px-4 sm:px-7 lg:px-9 py-6 sm:py-8 pb-28 sm:pb-10">
                 @if (session('status'))
                     <div role="status" class="mb-5 rounded-md border border-line bg-surface px-4 py-3 text-sm text-pine-700 font-medium">
                         {{ session('status') }}
@@ -146,15 +156,11 @@
     <!-- Mobile Bottom Navigation (Admin Role) -->
     @if (auth()->user()?->role === 'admin')
         <nav class="sm:hidden fixed bottom-0 inset-x-0 bg-ink-900 text-text-on-ink border-t border-white/10 flex justify-around items-center px-1 pt-1 pb-[max(0.5rem,env(safe-area-inset-bottom))] z-30" aria-label="Navigasi seluler admin">
-            @foreach ([['admin.dashboard', 'admin.dashboard', 'Ringkasan'], ['admin.users.index', 'admin.users.*', 'Akun'], ['admin.logs', 'admin.logs', 'Log']] as [$to, $match, $label])
+            @foreach ([['admin.dashboard', 'admin.dashboard', 'Ringkasan'], ['staff.dashboard', 'staff.*', 'Staff'], ['admin.users.index', 'admin.users.*', 'Akun'], ['admin.logs', 'admin.logs', 'Log']] as [$to, $match, $label])
                 <a href="{{ route($to) }}" class="flex-1 text-center text-xs py-2 min-h-11 flex flex-col items-center justify-center {{ request()->routeIs($match) ? 'text-white font-semibold border-t-2 border-ember-600' : 'text-text-on-ink/80' }}">
                     <span>{{ $label }}</span>
                 </a>
             @endforeach
-            <form method="POST" action="{{ route('logout') }}" class="flex-1 flex">
-                @csrf
-                <button type="submit" class="flex-1 text-center text-xs py-2 min-h-11 text-text-on-ink/80">Keluar</button>
-            </form>
         </nav>
     @endif
 

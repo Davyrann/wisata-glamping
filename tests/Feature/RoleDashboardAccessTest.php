@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Room;
 use App\Models\User;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -37,6 +38,10 @@ test('user can browse glamping rooms catalog in user dashboard', function () {
         ->assertSee('Safari Luxury Suite')
         ->assertSee('Forest Glamping Dome')
         ->assertSee('Alpine Wooden Cabin');
+
+    foreach (Room::all() as $room) {
+        expect(file_exists(public_path($room->image_path)))->toBeTrue();
+    }
 });
 
 test('staff accessing /dashboard is redirected to staff dashboard', function () {
@@ -61,6 +66,11 @@ test('admin accessing /dashboard is redirected to admin dashboard', function () 
         ->assertOk()
         ->assertSee('Panel Administrator')
         ->assertSee('TOTAL PENGGUNA TAMU');
+
+    $this->actingAs($admin)->get(route('staff.dashboard'))
+        ->assertOk()
+        ->assertSee('Dashboard Operasional')
+        ->assertSee('Role: admin');
 });
 
 test('role middleware forbids unauthorized cross-role access', function () {

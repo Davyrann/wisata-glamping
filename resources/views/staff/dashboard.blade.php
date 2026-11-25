@@ -7,7 +7,7 @@
 <div class="mb-8">
     <div class="flex items-center gap-2 mb-2">
         <p class="text-xs tracking-[0.14em] uppercase text-text-muted">Operasional Staf</p>
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-sunken text-text-muted">Role: staff</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-sunken text-text-muted">Role: {{ auth()->user()->role }}</span>
     </div>
     <h1 class="font-display text-[clamp(1.8rem,3vw,2.5rem)] font-semibold leading-tight">Dashboard Operasional</h1>
     <p class="mt-2 text-text-muted text-sm sm:text-base">Pantau jadwal serah terima kamar, check-in, check-out, serta permohonan pembatalan tamu.</p>

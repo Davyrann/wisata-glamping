@@ -5,9 +5,12 @@ declare(strict_types=1);
 use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PreparationChecklistController;
+use App\Http\Controllers\PublicBookingCheckController;
 use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
 use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\BookingController;
@@ -28,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 // Rute Publik
 Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/cek-reservasi', PublicBookingCheckController::class)->name('booking.check');
+Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/persiapan-glamping', PreparationChecklistController::class)
     ->name('preparation.checklist');
 
@@ -35,6 +40,8 @@ Route::get('/persiapan-glamping', PreparationChecklistController::class)
 Route::middleware('guest')->group(function (): void {
     Route::get('/login', [LoginController::class, 'create'])->name('login');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 });
 
 // Rute Terautentikasi (Auth Only)
@@ -71,8 +78,8 @@ Route::middleware('auth')->group(function (): void {
         Route::patch('/profile/password', [AccountController::class, 'password'])->name('dashboard.profile.password');
     });
 
-    // Rute Khusus Peran Staf Operasional (Staff Role)
-    Route::middleware('role:staff')->prefix('staff')->group(function (): void {
+    // Rute Khusus Peran Staf Operasional & Supervisi Admin
+    Route::middleware('role:staff,admin')->prefix('staff')->group(function (): void {
         Route::get('/dashboard', StaffDashboardController::class)->name('staff.dashboard');
     });
 
