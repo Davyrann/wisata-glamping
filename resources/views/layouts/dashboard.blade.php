@@ -30,8 +30,18 @@
                 @elseif (auth()->user()?->role === 'admin')
                     <a href="{{ route('admin.dashboard') }}"
                        class="flex items-center justify-center lg:justify-start gap-3 min-h-11 px-3 rounded-md text-sm {{ request()->routeIs('admin.dashboard') ? 'bg-ink-800 border-l-2 border-ember-600 text-white font-semibold' : 'text-text-on-ink/80 hover:bg-ink-800' }}">
-                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
                         <span class="hidden lg:block">Panel Admin</span>
+                    </a>
+                    <a href="{{ route('admin.users.index') }}"
+                       class="flex items-center justify-center lg:justify-start gap-3 min-h-11 px-3 rounded-md text-sm {{ request()->routeIs('admin.users.*') ? 'bg-ink-800 border-l-2 border-ember-600 text-white font-semibold' : 'text-text-on-ink/80 hover:bg-ink-800' }}">
+                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-5 14-5 14 0M17 4a4 4 0 010 8M22 21c0-3-2-4.5-4-5"/></svg>
+                        <span class="hidden lg:block">Manajemen Akun</span>
+                    </a>
+                    <a href="{{ route('admin.logs') }}"
+                       class="flex items-center justify-center lg:justify-start gap-3 min-h-11 px-3 rounded-md text-sm {{ request()->routeIs('admin.logs') ? 'bg-ink-800 border-l-2 border-ember-600 text-white font-semibold' : 'text-text-on-ink/80 hover:bg-ink-800' }}">
+                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="14 3 14 9 20 9"/><path d="M8 13h8M8 17h6"/></svg>
+                        <span class="hidden lg:block">Log Aktivitas</span>
                     </a>
                 @else
                     {{-- Navigasi Pengguna Tamu (User) --}}
@@ -130,6 +140,21 @@
             <a href="{{ route('dashboard.profile') }}" class="flex-1 text-center text-xs py-2 min-h-11 flex flex-col items-center justify-center {{ request()->routeIs('dashboard.profile') ? 'text-white font-semibold border-t-2 border-ember-600' : 'text-text-on-ink/80' }}">
                 <span>Akun</span>
             </a>
+        </nav>
+    @endif
+
+    <!-- Mobile Bottom Navigation (Admin Role) -->
+    @if (auth()->user()?->role === 'admin')
+        <nav class="sm:hidden fixed bottom-0 inset-x-0 bg-ink-900 text-text-on-ink border-t border-white/10 flex justify-around items-center px-1 pt-1 pb-[max(0.5rem,env(safe-area-inset-bottom))] z-30" aria-label="Navigasi seluler admin">
+            @foreach ([['admin.dashboard', 'admin.dashboard', 'Ringkasan'], ['admin.users.index', 'admin.users.*', 'Akun'], ['admin.logs', 'admin.logs', 'Log']] as [$to, $match, $label])
+                <a href="{{ route($to) }}" class="flex-1 text-center text-xs py-2 min-h-11 flex flex-col items-center justify-center {{ request()->routeIs($match) ? 'text-white font-semibold border-t-2 border-ember-600' : 'text-text-on-ink/80' }}">
+                    <span>{{ $label }}</span>
+                </a>
+            @endforeach
+            <form method="POST" action="{{ route('logout') }}" class="flex-1 flex">
+                @csrf
+                <button type="submit" class="flex-1 text-center text-xs py-2 min-h-11 text-text-on-ink/80">Keluar</button>
+            </form>
         </nav>
     @endif
 

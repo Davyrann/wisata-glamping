@@ -61,11 +61,11 @@
         </div>
 
         <!-- Sisi Kanan (Desktop: 7/12 area konten paper; Form 400px) -->
-        <main class="w-full lg:w-7/12 flex-1 flex items-center justify-center p-6 sm:p-10 lg:p-12 overflow-y-auto">
-            <div class="w-full max-w-[400px] py-4">
+        <main class="w-full lg:w-7/12 flex-1 flex justify-center px-6 py-8 sm:px-10 lg:px-12 lg:py-10 overflow-y-auto">
+            <div class="w-full max-w-[400px] my-auto">
 
                 <!-- Header Form & Identitas Brand -->
-                <div class="mb-8">
+                <div class="mb-6">
                     <div class="flex items-center gap-3 mb-4">
                         <img src="{{ asset('images/logo/atara-logo-mark.svg') }}"
                              alt="Logo Atara Glamping"
@@ -84,7 +84,7 @@
                 </div>
 
                 <!-- Formulir Login -->
-                <form method="POST" action="{{ route('login.store') }}" class="space-y-5" novalidate>
+                <form method="POST" action="{{ route('login.store') }}" class="space-y-4" novalidate>
                     @csrf
 
                     <!-- Field: Alamat Email -->
@@ -190,7 +190,7 @@
                 </form>
 
                 <!-- Tautan Sekunder: Cek Reservasi Tanpa Login (Sesuai DESIGN_dashboard_page.md §7.7) -->
-                <div class="mt-6 pt-5 border-t border-line text-center space-y-3">
+                <div class="mt-5 pt-4 border-t border-line text-center space-y-2">
                     <p class="text-xs text-text-muted">
                         Ingin memeriksa pesanan secara instan?
                     </p>
@@ -204,7 +204,7 @@
                 </div>
 
                 <!-- Panel Bantuan Pengujian: Akun Demo Wajib Dosen & Evaluator -->
-                <div class="mt-8 p-3.5 rounded-md bg-sunken border border-line text-xs">
+                <div class="mt-5 p-3.5 rounded-md bg-sunken border border-line text-xs">
                     <div class="flex items-center justify-between mb-2">
                         <span class="font-mono text-[10px] uppercase tracking-wider text-text-muted font-semibold">
                             Akun Uji Coba Demo

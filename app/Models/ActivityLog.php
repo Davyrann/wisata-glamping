@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 /**
@@ -44,6 +45,19 @@ class ActivityLog extends Model
         'description',
         'ip_address',
     ];
+
+    /**
+     * Catat satu tindakan operasional/administratif ke audit trail.
+     */
+    public static function record(?User $actor, string $action, string $description, ?Request $request = null): self
+    {
+        return self::create([
+            'user_id' => $actor?->id,
+            'action' => $action,
+            'description' => $description,
+            'ip_address' => ($request ?? request())->ip(),
+        ]);
+    }
 
     /**
      * Relasi ke model User yang melakukan tindakan.

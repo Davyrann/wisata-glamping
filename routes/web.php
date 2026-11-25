@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PreparationChecklistController;
@@ -77,6 +79,10 @@ Route::middleware('auth')->group(function (): void {
     // Rute Khusus Administrator Sistem (Admin Role)
     Route::middleware('role:admin')->prefix('admin')->group(function (): void {
         Route::get('/dashboard', AdminDashboardController::class)->name('admin.dashboard');
+        Route::get('/logs', ActivityLogController::class)->name('admin.logs');
+        Route::resource('users', AdminUserController::class)
+            ->except('show')
+            ->names('admin.users');
     });
 
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
